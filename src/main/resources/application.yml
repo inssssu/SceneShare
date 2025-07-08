@@ -14,7 +14,7 @@ spring:
     hikari:
       driver-class-name: com.mysql.cj.jdbc.Driver
       jdbc-url: jdbc:mysql://localhost:3306/sceneshare?characterEncoding=UTF-8&serverTimezone=UTC
-      username: sceneshare
+      username: user1
       password: full502
       connection-test-query: SELECT 1
 
