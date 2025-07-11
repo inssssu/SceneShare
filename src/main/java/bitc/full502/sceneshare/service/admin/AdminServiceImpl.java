@@ -5,6 +5,8 @@ import bitc.full502.sceneshare.domain.repository.admin.AdminRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class AdminServiceImpl implements AdminService {
@@ -12,14 +14,22 @@ public class AdminServiceImpl implements AdminService {
     private final AdminRepository adminRepository;
 
     @Override
-    public AdminEntity selectAdminInfo(String adminName) throws Exception {
+    public boolean login(String adminName, String adminPassword) {
 
+        Optional<AdminEntity> admin = adminRepository.findByAdminNameAndAdminPassword(adminName, adminPassword);
 
-        return adminRepository.findByAdminName(adminName);
+        return admin.isPresent();
     }
 
-    @Override
-    public int isAdminInfo(String adminName, String adminPassword) throws Exception {
-        return adminRepository.findByAdminNameAndAdminPassword(adminName, adminPassword);
-    }
+//    @Override
+//    public AdminEntity selectAdminInfo(String adminName) throws Exception {
+//
+//
+//        return adminRepository.findByAdminName(adminName);
+//    }
+//
+//    @Override
+//    public int isAdminInfo(String adminName, String adminPassword) throws Exception {
+//        return adminRepository.findByAdminNameAndAdminPassword(adminName, adminPassword);
+//    }
 }

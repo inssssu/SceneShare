@@ -20,24 +20,19 @@ public class AdminLoginController {
         return "admin/login";
     }
 
-    @GetMapping("/loginProcess")
+    @PostMapping("/login")
     public String adminLoginProcess(@RequestParam("adminName") String adminName,
                                     @RequestParam("adminPassword") String adminPassword,
                                     HttpServletRequest req) throws Exception {
 
-        int result = adminService.isAdminInfo(adminName, adminPassword);
-
-        if (result == 1) {
-            AdminEntity admin = adminService.selectAdminInfo(adminName);
-
+        if (adminService.login(adminName, adminPassword)) {
             HttpSession session = req.getSession();
-            session.setAttribute("adminName", adminName);
-//            session.setAttribute("adminPassword", adminPassword);
 
+            session.setAttribute("adminName", adminName);
             return "redirect:/admin/dashboard";
         } else {
-            return "redirect:/admin/login";
+            System.out.println("adminLoginProcess 로그인 실패");
+            return "/admin/login";
         }
-
     }
 }
