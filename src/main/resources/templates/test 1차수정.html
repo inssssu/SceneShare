@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>게시물 관리</title>
+    <style>
+        body {
+            font-family: 'Arial';
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+
+        h2 {
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        #tableContainer {
+            max-width: 1100px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #searchContainer {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 15px;
+        }
+
+        #searchInput {
+            padding: 8px;
+            font-size: 14px;
+            width: 360px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+
+        th,
+        td {
+            padding: 12px 10px;
+            font-size: 15px;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        thead th {
+            background-color: #f0f0f0;
+        }
+
+        tr.clickable:hover {
+            background-color: #f9f9f9;
+            cursor: pointer;
+        }
+
+        th:nth-child(1),
+        td:nth-child(1) {
+            width: 70px;
+        }
+
+        th:nth-child(2),
+        td:nth-child(2) {
+            width: 150px;
+        }
+
+        th:nth-child(3),
+        td:nth-child(3) {
+            width: 300px;
+        }
+
+        th:nth-child(4),
+        td:nth-child(4) {
+            width: 140px;
+        }
+
+        th:nth-child(5),
+        td:nth-child(5) {
+            width: 100px;
+        }
+
+        th:nth-child(6),
+        td:nth-child(6) {
+            width: 90px;
+        }
+
+        th:nth-child(7),
+        td:nth-child(7) {
+            width: 90px;
+        }
+
+        .delete-btn,
+        .back-btn {
+            padding: 6px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .delete-btn {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        .back-btn {
+            background-color: #999;
+            color: white;
+        }
+
+        .register-btn {
+            background-color: #2ecc71;
+            color: white;
+            padding: 8px 14px;
+            border-radius: 4px;
+            border: none;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .button-wrapper {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 10px;
+        }
+
+        #postDetailSection {
+            display: none;
+            max-width: 600px;
+            margin: 30px auto;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+
+        #postDetailSection h3 {
+            margin-top: 0;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        #detailControls {
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        #detailControls button {
+            margin: 0 6px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>게시물 관리</h2>
+    <div id="tableContainer">
+        <div id="searchContainer">
+            <input type="text" id="searchInput" placeholder="제목, 내용, 작성자 검색" />
+        </div>
+        <table id="postTable">
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>제목</th>
+                    <th>내용</th>
+                    <th>작성자</th>
+                    <th>수정일</th>
+                    <th>조회수</th>
+                    <th>관리</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <div class="button-wrapper">
+            <button class="register-btn">게시물 등록</button>
+        </div>
+    </div>
+
+    <div id="postDetailSection">
+        <h3>게시물 상세 보기</h3>
+        <p><strong>개봉일:</strong> <span id="detailReleaseDate"></span></p>
+        <p><strong>평점:</strong> <span id="detailRating"></span> / 5</p>
+        <p><strong>제목:</strong> <span id="detailTitle"></span></p>
+        <p><strong>장르:</strong> <span id="detailGenre"></span></p>
+        <p><strong>감독:</strong> <span id="detailDirector"></span></p>
+        <p><strong>출연진:</strong> <span id="detailCast"></span></p>
+        <p><strong>내용:</strong> <span id="detailContent"></span></p>
+        <p><strong>작성자:</strong> <span id="detailWriter"></span></p>
+        <p><strong>작성일:</strong> <span id="detailCreated"></span></p>
+        <p><strong>수정일:</strong> <span id="detailUpdated"></span></p>
+        <p><strong>조회수:</strong> <span id="detailViews"></span></p>
+        <div id="detailControls">
+            <button class="back-btn" onclick="backToList()">목록</button>
+            <button class="delete-btn" onclick="deletePost(currentDetailId)">삭제</button>
+        </div>
+    </div>
+
+    <script>
+        const posts = [
+            {
+                id: "p1", title: "기생충", content: "계층 사회의 민낯음악과 사랑 이야기음악과 사랑 이야기계층 사회의 민낯음악과 사랑 이야기음악과 사랑 이야기", writer: "김민수",
+                genre: "드라마", director: "봉준호", cast: "송강호", rating: 5,
+                releaseDate: "2019-05-30", created: "2024-07-03", updated: "24-07-03", views: 76452
+            },
+            {
+                id: "p2", title: "인셉션", content: "꿈 속에서 꿈을 꾼다.꿈 속에서 꿈을 꾼다.꿈 속에서 꿈을 꾼다.", writer: "홍길동",
+                genre: "SF", director: "크리스토퍼 놀란", cast: "레오나르도 디카프리오", rating: 5,
+                releaseDate: "2010-07-22", created: "2024-05-01", updated: "24-05-02", views: 103412
+            },
+            {
+                id: "p3", title: "라라랜드", content: "음악과 사랑의 이야기", writer: "이영희",
+                genre: "로맨스", director: "데이미언 셔젤", cast: "엠마 스톤", rating: 4,
+                releaseDate: "2016-12-07", created: "2024-05-03", updated: "24-05-04", views: 88880
+            },
+            {
+                id: "p4", title: "인터스텔라", content: "우주를 넘는 아버지의 사랑우주를 넘는 아버지의 사랑우주를 넘는 아버지의 사랑우주를 넘는 아버지의 사랑", writer: "박철수",
+                genre: "SF", director: "크리스토퍼 놀란", cast: "매튜 맥커너히", rating: 5,
+                releaseDate: "2014-11-06", created: "2024-05-05", updated: "24-05-06", views: 120345
+            },
+            {
+                id: "p5", title: "어벤져스", content: "히어로의 마지막 전투히어로의 마지막 전투히어로의 마지막 전투히어로의 마지막 전투", writer: "최은정",
+                genre: "액션", director: "루소 형제", cast: "로버트 다우니 주니어", rating: 4,
+                releaseDate: "2019-04-24", created: "2024-05-09", updated: "24-05-10", views: 54322
+            },
+        ];
+
+        let currentDetailId = null;
+
+        function renderPostList(filter = "") {
+            const tbody = document.querySelector("#postTable tbody");
+            tbody.innerHTML = "";
+
+            const filtered = posts
+                .filter(post => {
+                    const target = (post.title + post.content + post.writer).toLowerCase();
+                    return target.includes(filter.toLowerCase());
+                })
+                .sort((a, b) => b.created.localeCompare(a.created)); // 최신순
+
+            filtered.forEach((post, index) => {
+                const row = document.createElement("tr");
+                row.classList.add("clickable");
+                row.onclick = () => viewPostDetail(post.id);
+                row.innerHTML = `
+          <td>${String(posts.length - index).padStart(1)}</td>
+          <td>${post.title}</td>
+          <td>${post.content}</td>
+          <td>${post.writer}</td>
+          <td>${post.updated}</td>
+          <td>${post.views >= 999999 ? '999999+' : post.views}</td>
+          <td><button class="delete-btn" onclick="event.stopPropagation(); deletePost('${post.id}')">삭제</button></td>
+        `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function viewPostDetail(id) {
+            const post = posts.find(p => p.id === id);
+            if (!post) return alert("게시물을 찾을 수 없습니다.");
+
+            currentDetailId = id;
+            document.getElementById("detailTitle").textContent = post.title;
+            document.getElementById("detailContent").textContent = post.content;
+            document.getElementById("detailWriter").textContent = post.writer;
+            document.getElementById("detailGenre").textContent = post.genre;
+            document.getElementById("detailDirector").textContent = post.director;
+            document.getElementById("detailCast").textContent = post.cast;
+            document.getElementById("detailRating").textContent = post.rating;
+            document.getElementById("detailReleaseDate").textContent = post.releaseDate;
+            document.getElementById("detailCreated").textContent = post.created;
+            document.getElementById("detailUpdated").textContent = post.updated;
+            document.getElementById("detailViews").textContent = post.views;
+
+            document.getElementById("tableContainer").style.display = "none";
+            document.getElementById("postDetailSection").style.display = "block";
+        }
+
+        function deletePost(id) {
+            const index = posts.findIndex(p => p.id === id);
+            if (index !== -1 && confirm("정말 삭제하시겠습니까?")) {
+                posts.splice(index, 1);
+                renderPostList(document.getElementById("searchInput").value);
+                backToList();
+            }
+        }
+
+        function backToList() {
+            document.getElementById("postDetailSection").style.display = "none";
+            document.getElementById("tableContainer").style.display = "block";
+        }
+
+        document.getElementById("searchInput").addEventListener("input", function () {
+            renderPostList(this.value);
+        });
+
+        window.onload = () => {
+            renderPostList();
+        };
+    </script>
+</body>
+
+</html>
