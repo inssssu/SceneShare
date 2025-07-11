@@ -1,0 +1,124 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 10px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.search-bar-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 4px;
+}
+
+.search-bar-container input {
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+table.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+table.data-table th,
+table.data-table td {
+    border: 1px solid #aaa;
+    padding: 8px;
+}
+
+table.data-table th {
+    background-color: #800000;
+    color: white;
+}
+
+.col-no {
+    width: 60px;
+}
+
+.col-id {
+    text-align: center;
+    padding-left: 12px;
+    width: 30%;
+}
+
+.col-status {
+    width: 100px;
+}
+
+.col-actions {
+    width: 260px;
+}
+
+button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.detail-btn {
+    background-color: #888;
+    color: white;
+}
+
+.status-btn.active {
+    background-color: green;
+    color: white;
+}
+
+.status-btn.inactive {
+    background-color: orange;
+    color: white;
+}
+
+.delete-btn {
+    background-color: red;
+    color: white;
+}
+
+#userDetailSection {
+    display: none;
+    margin-top: 30px;
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#userDetailSection h3 {
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    color: #333;
+}
+
+.info-row {
+    margin-bottom: 12px;
+    font-size: 1rem;
+}
+
+.label {
+    font-weight: bold;
+    display: inline-block;
+    width: 80px;
+    color: #444;
+}
+
+.back-btn {
+    margin-top: 20px;
+    background-color: #555;
+    color: white;
+}
