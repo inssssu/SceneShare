@@ -12,8 +12,8 @@
     <script>
         $(document).ready(function() {
             $("#btn-search").on("click", function() {
-                const text = $("#search-movie").val();
-                const sendData = {searchMovie: text};
+                let result = $("#search-movie").val();
+                location.href = "/main/search?searchMovie=" + result;
 
                 $.ajax({
                     url: "/main/searchResult",
@@ -23,15 +23,21 @@
                         console.log(data);
 
                         if (data != null && data.length > 0) {
-                            const tableBody = $("#tb-list > tbody");
-                            tableBody.empty();
+                            const tableMovieTitle = $("#list-title > tbody");
+                            const tableMovieDirector = $("#list-director > tbody");
+                            const tableMovieGenre = $("#list-genre > tbody");
+                            tableMovieTitle.empty();
+                            tableMovieDirector.empty();
+                            tableMovieGenre.empty();
 
                             for (let i = 0; i < data.length; i++) {
                                 let tag = "<tr>";
                                 tag += "<td>" + data[i].text + "</td>";
                                 tag += "</tr>";
 
-                                tableBody.append(tag);
+                                tableMovieTitle.append(tag);
+                                tableMovieDirector.append(tag);
+                                tableMovieGenre.append(tag);
                             }
                         }
                         else {
@@ -55,14 +61,15 @@
                 <a href="/main" th:href="@{/main}">로고</a>
                 <input type="text" class="form-control" id="search-movie" placeholder="검색할 단어를 입력하세요">
                 <button type="button" class="btn btn-primary" id="btn-search">검색</button>
+                <th>"<span th:text="${searchMovie}"></span>"의 검색 결과</th>
                 <div class="text-end">
                     <a href="/user/login.do" th:href="@{/user/login.do}">로그인</a>
                     <a href="/user/logout.do" th:href="@{/user/logout.do}">로그아웃</a>
                 </div>
-                <table class="table table-hover table-striped" id="tb-list">
+                <table class="table table-hover table-striped" id="list-title">
                     <thead>
                     <tr>
-                        <th>"<span th:text="${searchMovie}"></span>"의 검색 결과</th>
+                        <th>영화</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -71,8 +78,42 @@
                         <td th:text="${item.movieGenre}">영화 줄거리</td>
                         <td th:text="${item.movieDirector}">영화 감독</td>
                     </tr>
-                    <tr th:unless="${#lists.size(movie)} > 0">
-                        <td colspan="5">조회된 데이터가 없습니다.</td>
+                    <tr th:unless="${#lists.size(movie.titleList)} > 0">
+                        <td colspan="5">검색결과가 없습니다.</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table class="table table-hover table-striped" id="list-director">
+                    <thead>
+                    <tr>
+                        <th>감독</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:if="${#lists.size(movie.directorList)} > 0" th:each="item : ${movie.directorList}">
+                        <td th:text="${item.movieTitle}">영화 제목</td>
+                        <td th:text="${item.movieGenre}">영화 줄거리</td>
+                        <td th:text="${item.movieDirector}">영화 감독</td>
+                    </tr>
+                    <tr th:unless="${#lists.size(movie.directorList)} > 0">
+                        <td colspan="5">검색결과가 없습니다.</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table class="table table-hover table-striped" id="list-genre">
+                    <thead>
+                    <tr>
+                        <th>장르</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:if="${#lists.size(movie.genreList)} > 0" th:each="item : ${movie.genreList}">
+                        <td th:text="${item.movieTitle}">영화 제목</td>
+                        <td th:text="${item.movieGenre}">영화 줄거리</td>
+                        <td th:text="${item.movieDirector}">영화 감독</td>
+                    </tr>
+                    <tr th:unless="${#lists.size(movie.genreList)} > 0">
+                        <td colspan="5">검색결과가 없습니다.</td>
                     </tr>
                     </tbody>
                 </table>

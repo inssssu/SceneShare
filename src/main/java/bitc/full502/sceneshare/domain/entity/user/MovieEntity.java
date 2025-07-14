@@ -42,6 +42,6 @@ public class MovieEntity {
     private Integer hitCnt;
 
     @Column
-    private Integer rating;
+    private Double rating;
 }
 
