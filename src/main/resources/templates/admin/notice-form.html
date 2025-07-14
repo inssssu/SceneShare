@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>공지사항 등록/수정</title>
+    <link rel="stylesheet" href="/css/notice-form.css" />
+</head>
+
+<body>
+    <div class="container">
+        <!-- 제목: 등록 모드일 때는 '공지사항 등록', 수정 모드일 땐 자바스크립트로 변경됨 -->
+        <h2 id="formTitle">공지사항 등록</h2>
+        <!-- 공지사항 입력 폼 -->
+        <form id="noticeForm">
+            <!-- 제목 입력 필드 -->
+            <div class="form-row">
+                <label for="title">제목</label>
+                <input type="text" id="title" name="title" required />
+            </div>
+            <!-- 내용 입력 필드 -->
+            <div class="form-row">
+                <label for="content">내용</label>
+                <textarea id="content" name="content" required></textarea>
+            </div>
+            <!-- 첨부파일 업로드 필드 -->
+            <div class="form-row">
+                <label for="file">첨부파일</label>
+                <input type="file" id="file" name="file" />
+                <small id="existingFile" style="margin-top: 5px;"></small>
+            </div>
+            <!-- 저장 버튼 -->
+            <div class="button-group">
+                <button type="submit" class="submit-btn">저장하기</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="/js/notice-form.js"></script>
+</body>
+
+</html>

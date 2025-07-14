@@ -1,0 +1,139 @@
+/* 전체 페이지 기본 스타일 설정 */
+body {
+    font-family: 'Arial';
+    margin: 20px;
+    background-color: #f9f9f9;
+}
+
+/* 제목 스타일 */
+h2 {
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 24px;
+}
+
+/* 테이블 및 검색 박스를 포함한 컨테이너 */
+#tableContainer {
+    max-width: 1100px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 검색창 및 필터 드롭다운 스타일 */
+#searchContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+/* 검색 입력창 및 필터 선택창 스타일 */
+#searchInput, #filterType {
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#searchInput {
+    width: 360px;
+}
+
+/* 게시물 목록 테이블 스타일 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    /* 내용 길이에 관계 없이 균등한 셀 너비 유지 */
+}
+
+th, td {
+    padding: 12px 10px;
+    font-size: 15px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+thead th {
+    background-color: #f0f0f0;
+}
+
+tr.clickable:hover {
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+/* 버튼 스타일 */
+.delete-btn,
+.register-btn,
+.back-btn,
+.edit-btn {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.delete-btn {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.register-btn {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.back-btn {
+    background-color: #999;
+    color: white;
+}
+
+.edit-btn {
+    background-color: #3498db;
+    color: white;
+}
+
+/* 등록 버튼 위치 조정 */
+.button-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+/* 게시물 상세 보기 영역 스타일 */
+#postDetailSection {
+    display: none;
+    max-width: 700px;
+    margin: 30px auto;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+#postDetailSection h3 {
+    margin-top: 0;
+    text-align: center;
+    font-size: 20px;
+}
+
+#postDetailSection p {
+    margin-bottom: 10px;
+}
+
+#detailControls {
+    margin-top: 15px;
+    text-align: center;
+}
+
+#detailControls button {
+    margin: 0 6px;
+}
