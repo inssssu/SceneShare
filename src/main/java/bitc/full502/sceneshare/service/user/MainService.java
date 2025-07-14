@@ -4,6 +4,7 @@ import bitc.full502.sceneshare.domain.entity.user.BoardEntity;
 import bitc.full502.sceneshare.domain.entity.user.MovieEntity;
 
 import java.util.List;
+import java.util.Map;
 
 public interface MainService {
 
@@ -13,5 +14,5 @@ public interface MainService {
 
     List<BoardEntity> selectBoardListByOrderByCreateDateDesc() throws Exception;
 
-    List<MovieEntity> selectMovieSearchList(String searchMovie, String opt);
+    Map<String, List<MovieEntity>> movieSearchList(String searchMovie) throws Exception;
 }

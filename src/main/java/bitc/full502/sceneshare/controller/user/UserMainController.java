@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequiredArgsConstructor
@@ -22,11 +23,11 @@ public class UserMainController {
     public ModelAndView main() throws Exception {
         ModelAndView mv = new ModelAndView("/user/main");
 
-        List<MovieEntity> movieList1 = mainService.selectBoardListByHitCnt();
-        mv.addObject("movieList1", movieList1);
+        List<MovieEntity> movieListHitCnt = mainService.selectBoardListByHitCnt();
+        mv.addObject("movieListHitCnt", movieListHitCnt);
 
-        List<MovieEntity> movieList2 = mainService.selectBoardListByReleaseDate();
-        mv.addObject("movieList2", movieList2);
+        List<MovieEntity> movieListReleaseDate = mainService.selectBoardListByReleaseDate();
+        mv.addObject("movieListReleaseDate", movieListReleaseDate);
 
         List<BoardEntity> boardList = mainService.selectBoardListByOrderByCreateDateDesc();
         mv.addObject("boardList", boardList);
@@ -34,22 +35,22 @@ public class UserMainController {
         return mv;
     }
 
-    @GetMapping("/main/List1")
-    public ModelAndView movieList1() throws Exception {
-        ModelAndView mv = new ModelAndView("/user/movieList1");
+    @GetMapping("/main/movieListHitCnt")
+    public ModelAndView movieListHitCnt() throws Exception {
+        ModelAndView mv = new ModelAndView("/user/movieListHitCnt");
 
-        List<MovieEntity> movieList1 = mainService.selectBoardListByHitCnt();
-        mv.addObject("movieList1", movieList1);
+        List<MovieEntity> movieListHitCnt = mainService.selectBoardListByHitCnt();
+        mv.addObject("movieListHitCnt", movieListHitCnt);
 
         return mv;
     }
 
-    @GetMapping("/main/List2")
+    @GetMapping("/main/movieListReleaseDate")
     public ModelAndView movieList2() throws Exception {
-        ModelAndView mv = new ModelAndView("/user/movieList2");
+        ModelAndView mv = new ModelAndView("movieListReleaseDate");
 
-        List<MovieEntity> movieList2 = mainService.selectBoardListByReleaseDate();
-        mv.addObject("movieList2", movieList2);
+        List<MovieEntity> movieListReleaseDate = mainService.selectBoardListByReleaseDate();
+        mv.addObject("movieList2", movieListReleaseDate);
 
         return mv;
     }
@@ -64,12 +65,31 @@ public class UserMainController {
         return mv;
     }
 
-    @ResponseBody
     @GetMapping("/main/search")
-    public Object MovieSearch(@RequestParam("searchMovie") String searchMovie, @RequestParam("option") String opt) {
+    public ModelAndView movieSearchResult(@RequestParam("searchMovie") String searchMovie) throws Exception {
+        ModelAndView mv = new ModelAndView("/user/movieSearchResult");
 
-        List<MovieEntity> MovieList = mainService.selectMovieSearchList(searchMovie, opt);
+//        List<List<MovieEntity>> movieList = mainService.movieSearchList(searchMovie);
+//        mv.addObject("movieList", movieList);
 
-        return MovieList;
+        Map<String, List<MovieEntity>> movie = mainService.movieSearchList(searchMovie);
+        mv.addObject("movie", movie);
+        mv.addObject("searchMovie", searchMovie);
+
+        return mv;
     }
+
+    @ResponseBody
+    @GetMapping("/main/searchResult")
+    public ModelAndView searchMovie(@RequestParam("searchMovie") String searchMovie) throws Exception {
+
+        ModelAndView mv = new ModelAndView("/user/movieSearchResult");
+
+        Map<String, List<MovieEntity>> movieResultList = mainService.movieSearchList(searchMovie);
+        mv.addObject("movieResultList", movieResultList);
+
+        return mv;
+    }
+
+
 }

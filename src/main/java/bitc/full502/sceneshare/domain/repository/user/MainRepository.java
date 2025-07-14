@@ -9,7 +9,4 @@ public interface MainRepository extends JpaRepository<MovieEntity,Integer>{
 
     List<MovieEntity> findAllByOrderByHitCntDesc();
     List<MovieEntity> findAllByOrderByReleaseDateDesc();
-    List<MovieEntity> findAllByMovieTitleContainsOrderByMovieTitleDesc(String movieTitle);
-    List<MovieEntity> findAllByMovieDirectorContainsOrderByMovieDirectorDesc(String movieDirector);
-    List<MovieEntity> findAllByMovieGenreContainsOrderByMovieGenreDesc(String movieGenre);
 }

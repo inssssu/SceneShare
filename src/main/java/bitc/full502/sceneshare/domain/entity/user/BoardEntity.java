@@ -21,7 +21,7 @@ public class BoardEntity {
     private int id;
 
     @Column(nullable = false)
-    private int userId;
+    private String userId;
 
     @Column(nullable = false)
     private String movie;

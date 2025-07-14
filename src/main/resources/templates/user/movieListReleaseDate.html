@@ -22,10 +22,10 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:if="${#lists.size(movieList2)} > 0" th:each="item : ${movieList2}">
+                    <tr th:if="${#lists.size(movieListReleaseDate)} > 0" th:each="item : ${movieListReleaseDate}">
                         <td th:text="${item.releaseDate}">최신 영화</td>
                     </tr>
-                    <tr th:unless="${#lists.size(movieList2)} > 0">
+                    <tr th:unless="${#lists.size(movieListReleaseDate)} > 0">
                         <td colspan="5">조회된 데이터가 없습니다.</td>
                     </tr>
                     </tbody>

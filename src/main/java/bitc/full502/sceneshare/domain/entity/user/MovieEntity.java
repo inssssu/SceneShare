@@ -39,9 +39,9 @@ public class MovieEntity {
     private LocalDateTime releaseDate;
 
     @Column
-    private int hitCnt;
+    private Integer hitCnt;
 
     @Column
-    private int rating;
+    private Integer rating;
 }
 
