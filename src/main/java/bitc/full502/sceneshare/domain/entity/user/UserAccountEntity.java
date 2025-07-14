@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 @Entity
 @Getter
 @Setter
@@ -23,5 +25,17 @@ public class UserAccountEntity {
 
     @Column(nullable = false)
     private String password;
+
+    @Column(nullable = false)
+    private String name;
+
+    @Column(unique = true)
+    private String email;
+
+    private String gender;
+
+//    private LocalDate createDate;
+
+    // role - user 추가 필요
 
 }

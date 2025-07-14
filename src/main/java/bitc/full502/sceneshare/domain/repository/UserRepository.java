@@ -7,8 +7,9 @@ import java.util.List;
 
 public interface UserRepository extends Repository<UserAccountEntity, Integer> {
 
+    UserAccountEntity findByUserIdx(int userIdx);
 
     List<UserAccountEntity> findAll();
 
-
+    List<UserAccountEntity> findByUsernameContainingOrNameContaining(String username, String name);
 }

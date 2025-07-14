@@ -13,6 +13,7 @@ public class AdminServiceImpl implements AdminService {
 
     private final AdminRepository adminRepository;
 
+    // 관리자 로그인
     @Override
     public boolean login(String adminName, String adminPassword) {
 

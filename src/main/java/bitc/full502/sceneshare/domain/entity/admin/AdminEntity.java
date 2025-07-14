@@ -20,4 +20,6 @@ public class AdminEntity {
     private String adminName;
     private String adminPassword;
 
+    // role - admin 추가 필요
+
 }

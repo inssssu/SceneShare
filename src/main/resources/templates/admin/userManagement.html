@@ -13,9 +13,39 @@
 </head>
 <body>
 
-    <div class="container mt-5">
-        <h1>userManagement.html</h1>
-    </div>
+    <main class="container mt-5">
+        <form th:action="@{/admin/userManagement/search}" method="get">
+            <input type="text" name="keyword" placeholder="검색할 내용을 입력하세요">
+            <button type="submit">검색</button>
+        </form>
+        <table class="table table-hover table-striped text-center">
+            <colgroup>
+                <col style="width: 10%">
+                <col style="width: 30%">
+                <col style="width: 30%">
+                <col style="width: 30%">
+            </colgroup>
+            <thead>
+            <tr>
+                <th>번호</th>
+                <th>사용자 ID</th>
+                <th>이름</th>
+                <th>상태</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr th:if="${#lists.size(userList)} > 0" th:each="item : ${userList}">
+                    <td th:text="${item.userIdx}">1</td>
+                    <td th:text="${item.username}">사용자 ID</td>
+                    <td th:text="${item.name}">이름</td>
+                    <td>상태</td>
+                </tr>
+                <tr th:unless="${#lists.size(userList)}">
+                    <td colspan="5">조회된 데이터가 없습니다</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
 
 </body>
 </html>

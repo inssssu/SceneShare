@@ -15,11 +15,13 @@ public class AdminLoginController {
 
     private final AdminService adminService;
 
+    // 관리자 로그인
     @GetMapping("/login")
     public String adminLogin() {
         return "admin/login";
     }
 
+    // 관리자 로그인 프로세스
     @PostMapping("/login")
     public String adminLoginProcess(@RequestParam("adminName") String adminName,
                                     @RequestParam("adminPassword") String adminPassword,
@@ -29,7 +31,7 @@ public class AdminLoginController {
             HttpSession session = req.getSession();
 
             session.setAttribute("adminName", adminName);
-            return "redirect:/admin/dashboard";
+            return "redirect:/admin/userManagement";
         } else {
             System.out.println("adminLoginProcess 로그인 실패");
             return "/admin/login";
