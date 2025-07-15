@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface MainRepository extends JpaRepository<MovieEntity,Integer>{
 
-    List<MovieEntity> findAllByOrderByHitCntDesc();
+    List<MovieEntity> findAllByOrderByBookmarkCntDesc();
     List<MovieEntity> findAllByOrderByReleaseDateDesc();
 }

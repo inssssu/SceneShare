@@ -8,7 +8,6 @@ import bitc.full502.sceneshare.domain.repository.user.SearchRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,8 +21,8 @@ public class MainServiceImpl implements MainService {
     private final SearchRepository searchRepository;
 
     @Override
-    public List<MovieEntity> selectBoardListByHitCnt() throws Exception {
-        return mainRepository.findAllByOrderByHitCntDesc();
+    public List<MovieEntity> selectBoardListByBookmarkCnt() throws Exception {
+        return mainRepository.findAllByOrderByBookmarkCntDesc();
     }
 
     @Override

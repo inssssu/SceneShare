@@ -2,14 +2,15 @@ package bitc.full502.sceneshare.service.user;
 
 import bitc.full502.sceneshare.domain.entity.user.UserEntity;
 import bitc.full502.sceneshare.domain.repository.user.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class UserLoginServiceImpl implements UserLoginService {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     @Override
     public int isUserInfo(String userId, String userPw) throws Exception {

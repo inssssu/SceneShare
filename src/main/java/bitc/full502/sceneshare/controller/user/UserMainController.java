@@ -23,8 +23,8 @@ public class UserMainController {
     public ModelAndView main() throws Exception {
         ModelAndView mv = new ModelAndView("/user/main");
 
-        List<MovieEntity> movieListHitCnt = mainService.selectBoardListByHitCnt();
-        mv.addObject("movieListHitCnt", movieListHitCnt);
+        List<MovieEntity> movieListBookmarkCnt = mainService.selectBoardListByBookmarkCnt();
+        mv.addObject("movieListBookmarkCnt", movieListBookmarkCnt);
 
         List<MovieEntity> movieListReleaseDate = mainService.selectBoardListByReleaseDate();
         mv.addObject("movieListReleaseDate", movieListReleaseDate);
@@ -35,22 +35,22 @@ public class UserMainController {
         return mv;
     }
 
-    @GetMapping("/main/movieListHitCnt")
-    public ModelAndView movieListHitCnt() throws Exception {
-        ModelAndView mv = new ModelAndView("/user/movieListHitCnt");
+    @GetMapping("/main/movieListBookmarkCnt")
+    public ModelAndView movieListBookmarkCnt() throws Exception {
+        ModelAndView mv = new ModelAndView("/user/movieListBookmarkCnt");
 
-        List<MovieEntity> movieListHitCnt = mainService.selectBoardListByHitCnt();
-        mv.addObject("movieListHitCnt", movieListHitCnt);
+        List<MovieEntity> movieListBookmarkCnt = mainService.selectBoardListByBookmarkCnt();
+        mv.addObject("movieListBookmarkCnt", movieListBookmarkCnt);
 
         return mv;
     }
 
     @GetMapping("/main/movieListReleaseDate")
-    public ModelAndView movieList2() throws Exception {
-        ModelAndView mv = new ModelAndView("movieListReleaseDate");
+    public ModelAndView movieListReleaseDate() throws Exception {
+        ModelAndView mv = new ModelAndView("/user/movieListReleaseDate");
 
         List<MovieEntity> movieListReleaseDate = mainService.selectBoardListByReleaseDate();
-        mv.addObject("movieList2", movieListReleaseDate);
+        mv.addObject("movieListReleaseDate", movieListReleaseDate);
 
         return mv;
     }
@@ -67,10 +67,8 @@ public class UserMainController {
 
     @GetMapping("/main/search")
     public ModelAndView movieSearchResult(@RequestParam("searchMovie") String searchMovie) throws Exception {
-        ModelAndView mv = new ModelAndView("/user/movieSearchResult");
 
-//        List<List<MovieEntity>> movieList = mainService.movieSearchList(searchMovie);
-//        mv.addObject("movieList", movieList);
+        ModelAndView mv = new ModelAndView("/user/movieSearchResult");
 
         Map<String, List<MovieEntity>> movie = mainService.movieSearchList(searchMovie);
         mv.addObject("movie", movie);
@@ -91,5 +89,10 @@ public class UserMainController {
         return mv;
     }
 
+    @GetMapping("/main/movieDetail")
+    public ModelAndView movieDetail() throws Exception {
+        ModelAndView mv = new ModelAndView("/user/movieDetail");
 
+        return mv;
+    }
 }

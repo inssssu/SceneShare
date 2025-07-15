@@ -8,7 +8,7 @@ import java.util.Map;
 
 public interface MainService {
 
-    List<MovieEntity> selectBoardListByHitCnt() throws Exception;
+    List<MovieEntity> selectBoardListByBookmarkCnt() throws Exception;
 
     List<MovieEntity> selectBoardListByReleaseDate() throws Exception;
 

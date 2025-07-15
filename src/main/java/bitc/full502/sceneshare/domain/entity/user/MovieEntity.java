@@ -1,10 +1,7 @@
 package bitc.full502.sceneshare.domain.entity.user;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -39,7 +36,7 @@ public class MovieEntity {
     private LocalDateTime releaseDate;
 
     @Column
-    private Integer hitCnt;
+    private Integer bookmarkCnt;
 
     @Column
     private Integer rating;

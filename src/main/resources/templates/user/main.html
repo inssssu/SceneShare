@@ -35,17 +35,17 @@
           <thead>
           <tr>
             <th>가장 많이 찾는 영화</th>
-            <th class="text-end"><a href="/main/movieListHitCnt" th:href="@{/main/movieListHitCnt}">목록</a></th>
+            <th class="text-end"><a href="/main/movieListBookmarkCnt" th:href="@{/main/movieListBookmarkCnt}">목록</a></th>
           </tr>
           </thead>
           <tbody>
-          <tr th:if="${#lists.size(movieListHitCnt)} > 0" th:each="item : ${movieListHitCnt}">
-            <td th:text="${item.releaseDate}">개봉일</td>
-            <td th:text="${item.movieTitle}">영화 제목</td>
-            <td th:text="${item.movieDescription}">영화 줄거리</td>
-            <td th:text="${item.movieDirector}">영화 감독</td>
+          <tr th:if="${#lists.size(movieListBookmarkCnt)} > 0" th:each="item : ${movieListBookmarkCnt}">
+            <td><a href="#" th:href="@{|/movieDetail/${item.movieId}|}" th:text="${item.releaseDate}">개봉일</a></td>
+            <td><a href="#" th:href="@{|/movieDetail/${item.movieId}|}" th:text="${item.movieTitle}">영화 제목</a></td>
+            <td><a href="#" th:href="@{|/movieDetail/${item.movieId}|}" th:text="${item.movieDescription}">영화 줄거리</a></td>
+            <td><a href="#" th:href="@{|/movieDetail/${item.movieId}|}" th:text="${item.movieDirector}">영화 감독</a></td>
           </tr>
-          <tr th:unless="${#lists.size(movieListHitCnt)} > 0">
+          <tr th:unless="${#lists.size(movieListBookmarkCnt)} > 0">
             <td colspan="5">조회된 데이터가 없습니다.</td>
           </tr>
           </tbody>
@@ -54,12 +54,15 @@
           <thead>
           <tr>
             <th>최신 영화</th>
-            <th class="text-end"><a href="/main/movieListReleaseDate">목록</a></th>
+            <th class="text-end"><a href="/main/movieListReleaseDate" th:href="@{/main/movieListReleaseDate}">목록</a></th>
           </tr>
           </thead>
           <tbody>
           <tr th:if="${#lists.size(movieListReleaseDate)} > 0" th:each="item : ${movieListReleaseDate}">
-            <td th:text="${item.releaseDate}">최신 영화</td>
+            <td><a href="#" th:href="@{|/movieDetail/${item.movieId}|}" th:text="${item.releaseDate}">개봉일</a></td>
+            <td><a href="#" th:href="@{|/movieDetail/${item.movieId}|}" th:text="${item.movieTitle}">영화 제목</a></td>
+            <td><a href="#" th:href="@{|/movieDetail/${item.movieId}|}" th:text="${item.movieDescription}">영화 줄거리</a></td>
+            <td><a href="#" th:href="@{|/movieDetail/${item.movieId}|}" th:text="${item.movieDirector}">영화 감독</a></td>
           </tr>
           <tr th:unless="${#lists.size(movieListReleaseDate)} > 0">
             <td colspan="5">조회된 데이터가 없습니다.</td>
@@ -70,7 +73,7 @@
           <thead>
           <tr>
             <th>게시글</th>
-            <th class="text-end"><a href="/main/boardList">목록</a></th>
+            <th class="text-end"><a href="/main/boardList" th:href="@{/main/boardList}">목록</a></th>
           </tr>
           </thead>
           <tbody>
