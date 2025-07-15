@@ -43,6 +43,7 @@ public class AdminUserManagementController {
     }
 
     // 사용자 ID, 이름으로 검색
+    // todolist : 사용자 검색 시 가입일(번호) 기준 역순으로 출력 수정 필요
     @GetMapping("/userManagement/search")
     public Object adminSearchUser(@RequestParam("keyword") String keyword) throws Exception {
         // 공백제거

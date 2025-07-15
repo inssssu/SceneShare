@@ -16,7 +16,7 @@ public class AdminUserServiceImpl implements AdminUserService {
     // 사용자 리스트
     @Override
     public List<UserAccountEntity> selectUserAccountList() {
-        return userRepository.findAll();
+        return userRepository.findAllByOrderByUserIdxDesc();
     }
 
     // 사용자 상세
