@@ -3,6 +3,9 @@ package bitc.full502.sceneshare.domain.entity.user;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "users")
 @Getter
@@ -32,4 +35,7 @@ public class UserEntity {
 
     @Column
     private String userImg;
+
+    @OneToMany(mappedBy = "user")
+    private List<BookmarkEntity> bookmarks = new ArrayList<>();
 }

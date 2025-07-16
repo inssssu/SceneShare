@@ -29,7 +29,7 @@ public class UserMainController {
         List<MovieEntity> movieListReleaseDate = mainService.selectBoardListByReleaseDate();
         mv.addObject("movieListReleaseDate", movieListReleaseDate);
 
-        List<BoardEntity> boardList = mainService.selectBoardListByOrderByCreateDateDesc();
+        List<BoardEntity> boardList = mainService.selectBoardList();
         mv.addObject("boardList", boardList);
 
         return mv;
@@ -59,7 +59,7 @@ public class UserMainController {
     public ModelAndView boardList() throws Exception {
         ModelAndView mv = new ModelAndView("/user/boardList");
 
-        List<BoardEntity> boardList = mainService.selectBoardListByOrderByCreateDateDesc();
+        List<BoardEntity> boardList = mainService.selectBoardList();
         mv.addObject("boardList", boardList);
 
         return mv;
@@ -85,13 +85,6 @@ public class UserMainController {
 
         Map<String, List<MovieEntity>> movieResultList = mainService.movieSearchList(searchMovie);
         mv.addObject("movieResultList", movieResultList);
-
-        return mv;
-    }
-
-    @GetMapping("/main/movieDetail")
-    public ModelAndView movieDetail() throws Exception {
-        ModelAndView mv = new ModelAndView("/user/movieDetail");
 
         return mv;
     }

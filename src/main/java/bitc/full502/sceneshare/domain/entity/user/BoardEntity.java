@@ -1,15 +1,12 @@
 package bitc.full502.sceneshare.domain.entity.user;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "board")
+@Table(name = "board_table")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -18,27 +15,27 @@ public class BoardEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int boardId;
 
-    @Column(nullable = false)
+    @Column
     private String userId;
 
-    @Column(nullable = false)
+    @Column
     private String movie;
 
-    @Column(nullable = false)
+    @Column
     private String title;
 
     @Column
     private String contents;
 
-    @Column(nullable = false)
+    @Column
     private LocalDateTime createDate;
 
     @Column
     private LocalDateTime updateDate;
 
-    @Column(nullable = false)
+    @Column
     private String genre;
 
     @Column

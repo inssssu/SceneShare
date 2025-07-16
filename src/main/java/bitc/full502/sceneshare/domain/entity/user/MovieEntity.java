@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "movie")
@@ -40,5 +42,8 @@ public class MovieEntity {
 
     @Column
     private Integer rating;
+
+    @OneToMany(mappedBy = "movie")
+    private List<BookmarkEntity> bookmarks = new ArrayList<>();
 }
 

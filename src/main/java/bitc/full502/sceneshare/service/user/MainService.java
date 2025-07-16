@@ -12,7 +12,7 @@ public interface MainService {
 
     List<MovieEntity> selectBoardListByReleaseDate() throws Exception;
 
-    List<BoardEntity> selectBoardListByOrderByCreateDateDesc() throws Exception;
+    List<BoardEntity> selectBoardList() throws Exception;
 
     Map<String, List<MovieEntity>> movieSearchList(String searchMovie) throws Exception;
 }

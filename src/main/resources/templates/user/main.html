@@ -78,7 +78,7 @@
           </thead>
           <tbody>
           <tr th:if="${#lists.size(boardList)} > 0" th:each="item : ${boardList}">
-            <td th:text="${item.id}">게시판</td>
+            <td th:text="${item.boardId}">게시판</td>
           </tr>
           <tr th:unless="${#lists.size(boardList)} > 0">
             <td colspan="5">조회된 데이터가 없습니다.</td>

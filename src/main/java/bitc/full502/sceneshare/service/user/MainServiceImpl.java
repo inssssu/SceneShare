@@ -31,8 +31,8 @@ public class MainServiceImpl implements MainService {
     }
 
     @Override
-    public List<BoardEntity> selectBoardListByOrderByCreateDateDesc() throws Exception {
-        return mainBoardListRepository.findAllByOrderByCreateDateDesc();
+    public List<BoardEntity> selectBoardList() throws Exception {
+        return mainBoardListRepository.findAll();
     }
 
 

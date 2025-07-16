@@ -13,6 +13,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
         registry.addInterceptor(new LoginCheck())
                 .addPathPatterns("/user/**")
                 .addPathPatterns("/main/**")
+                .addPathPatterns("/bookmarks/**")
                 .excludePathPatterns("/user/login.do")
                 .excludePathPatterns("/user/loginProcess.do")
                 .excludePathPatterns("/user/loginFail.do")
