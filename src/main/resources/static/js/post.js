@@ -73,7 +73,6 @@ function renderPostList() {
             <td>${number}</td>
             <td>${post.title}</td>
             <td>${post.content}</td>
-            <td>${post.writer || '-'}</td>
             <td>${post.createdAt}</td>
             <td>${post.views}</td>
             <td><button class="delete-btn" onclick="event.stopPropagation(); deletePost('${post.id}')">삭제</button></td>`;
