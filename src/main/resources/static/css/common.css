@@ -758,7 +758,8 @@ footer p {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     /* grid-template-columns: repeat(auto-fill, minmax(calc(20% - 12.8px), auto)); */
-    gap: 16px;
+    row-gap: 2rem; 
+    column-gap: 16px;
 }
 
 .movie-list.col10 {
@@ -1467,6 +1468,12 @@ footer p {
     margin: 6rem 0 3rem;
 }
 
+.sub-top-title-left {
+    font-size: 1.5em;
+    font-weight: 700;
+    margin: 3rem 0 1.2rem;
+}
+
 .my-infor {
     margin: 0 auto;
     width: 300px;
@@ -1665,9 +1672,6 @@ footer p {
 }
 
 
-/* 별점 주기 */
-
-
 
 /* reviewList.html */
 .review-list-page {
@@ -1743,12 +1747,74 @@ footer p {
 }
 
 .review-list-page .notice-label {
-    background-color: var(--main-color);
+    background-color: #222;
     color: #fff;
     padding: 4px 10px;
-    font-size: .8em;
+    font-size: .75em;
     border-radius: 50px;
 }
+
+
+
+/* noticeDetail.html */
+.notice-detail {
+    width: 80%;
+    max-width: 768px;
+    padding: 0 20px;
+    margin: 6rem auto;
+}
+
+.notice-detail .notice-label2 {
+    display: block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    background-color: #36b236;
+    border-radius: 50%;
+    text-align: center;
+    color: #fff;
+    font-size: 1em;
+    margin: 0 auto;
+}
+
+.notice-detail .notice-title {
+    margin: 1rem 0 4rem;
+    text-align: center;
+    color: #333;
+    line-height: 1.4em;
+}
+
+.notice-detail .notice-date {
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #666;
+    font-family: 'roboto';
+    font-size: 1.1em;
+}
+
+.notice-detail .notice-data {
+    line-height: 1.5em;
+    color: #444;
+}
+
+.notice-detail .btn-area {
+    border-top: 1px solid #eee;
+    margin-top: 5rem;
+    padding-top: 20px;
+}
+
+.notice-detail .btn-re-list {
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+    color: #666;
+}
+
+.notice-detail .btn-re-list:hover {
+    background-color: #f6f6f6;
+    color: #444;
+}
+
 
 
 /* 별점 주기 */

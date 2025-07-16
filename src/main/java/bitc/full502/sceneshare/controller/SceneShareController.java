@@ -38,6 +38,11 @@ public class SceneShareController {
         return "user/sub/searchList";
     }
 
+    @GetMapping("/movieList1")
+    public String movieList1() {
+        return "user/sub/movieList1";
+    }
+
     @GetMapping("/movieDetail")
     public String movieDetail() {
         return "user/sub/movieDetail";
@@ -51,6 +56,11 @@ public class SceneShareController {
     @GetMapping("/reviewDetail")
     public String reviewDetail() {
         return "user/board/reviewDetail";
+    }
+
+    @GetMapping("/noticeDetail")
+    public String noticeDetail() {
+        return "user/board/noticeDetail";
     }
 
 
