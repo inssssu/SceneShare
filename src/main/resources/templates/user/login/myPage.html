@@ -23,7 +23,7 @@
 
     <div class="wrap">
 
-        <header th:replace="~{/layout/header :: headerBasic('마이페이지')}"></header>
+        <header th:replace="~{/user/layout/header :: headerBasic('마이페이지')}"></header>
 
 
         <main>
@@ -40,7 +40,7 @@
 
                         <div class="my-infor-list">
                             <dl>
-                                <dt>ID</dt>
+                                <dt>아이디</dt>
                                 <dd>abc가나</dd>
                             </dl>
                             <dl>
@@ -56,6 +56,10 @@
                                 <dd>남</dd>
                             </dl>
 
+                        </div>
+
+                        <div class="my-update-area">
+                            <a href="myUpdate.html" target="_blank" class="btn-my-update-go">회원정보 수정</a>
                         </div>
                     </div>
                 </section>
@@ -182,7 +186,8 @@
         </main>
 
 
-        <footer th:replace="~{/layout/footer :: footer}"></footer>
+        <footer th:replace="~{/user/layout/footer :: footer}"></footer>
+
     </div>
 </body>
 

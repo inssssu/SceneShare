@@ -13,25 +13,16 @@
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
         crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="css/common.css">
-    <script src="js/common.js"></script>
-
-    <script>
-        $(document).ready(function(){
-            $("#btn-search").on("click", function(){
-                let result = $("#search-movie").val();
-                location.href = "/main/search?searchMovie=" + result;
-            });
-        });
-    </script>
+    <link rel="stylesheet" href="../css/common.css">
+    <script src="../js/common.js"></script>
 
 </head>
 
 
 <body>
 
-    <header>
-        <section class="container" th:fragment="headerBasic(text)">
+    <header th:fragment="headerBasic(text)">
+        <section class="container">
             <h1 class="logo">
                 <a href="/main" th:href="@{/main}"><em>Scene, </em>Share</a>
             </h1>
@@ -45,17 +36,17 @@
                 </li>
 
                 <!-- 로그아웃 시 -->
-                <li class="top-login-btn"><a href="/user/login.do" th:href="@{/user/login.do}">로그인</a></li>
-                <li class="top-join-btn"><a href="#">회원가입</a></li>
+                <li class="top-login-btn logout-view"><a href="/login/login" th:href="@{/login/login}">로그인</a></li>
+                <li class="top-join-btn logout-view"><a href="/login/join" th:href="@{/login/join}">회원가입</a></li>
 
                 <!-- 로그인 시 -->
-                <!-- <li class="top-login-btn"><a href="/user/logout.do" th:href="@{/user/logout.do}">로그아웃</a></li>
-                <li class="top-my-btn">
-                    <a href="../sub/myPage.html" class="hover-name imgBox">
+                <li class="top-login-btn login-view"><a href="#">로그아웃</a></li>
+                <li class="top-my-btn login-view">
+                    <a href="/sub/myPage" th:href="@{/sub/myPage}" class="hover-name imgBox">
                         <img src="../img/test-profile-img.jpg" class="profile-img" alt="마이페이지">
                         <span class="tooltip">사용자ID</span>
                     </a>
-                </li> -->
+                </li>
             </ul>
         </section>
     </header>

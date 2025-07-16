@@ -23,8 +23,7 @@
 
     <div class="wrap">
 
-        <header th:replace="~{/layout/header :: headerBasic('영화정보 상세보기')}"></header>
-
+        <header th:replace="~{/user/layout/header :: headerBasic('영화정보 상세보기')}"></header>
 
         <main>
             <div class="sub-top-visual">
@@ -103,8 +102,10 @@
                             </div>
                             <div class="center">
                                 <p class="in-text">
-                                    영화 관람 후기 및 추천 리뷰 내용입니다. 영화 관람 후기 및 추천 리뷰 내용입니다. 영화 관람 후기 및 추천 리뷰 내용입니다. 영화 관람 후기 및 추천 리뷰
-                                    내용입니다. 영화 관람 후기 및 추천 리뷰 내용입니다. 영화 관람 후기 및 추천 리뷰 내용입니다. 영화 관람 후기 및 추천 리뷰 내용입니다. 영화 관람 후기 및 추천 리뷰
+                                    영화 관람 후기 및 추천 리뷰 내용입니다. 영화 관람 후기 및 추천 리뷰 내용입니다. 영화 관람 후기 및 추천 리뷰 내용입니다. 영화 관람 후기 및
+                                    추천 리뷰
+                                    내용입니다. 영화 관람 후기 및 추천 리뷰 내용입니다. 영화 관람 후기 및 추천 리뷰 내용입니다. 영화 관람 후기 및 추천 리뷰 내용입니다. 영화 관람
+                                    후기 및 추천 리뷰
                                     내용입니다.
                                 </p>
                             </div>
@@ -166,8 +167,7 @@
             </div>
         </main>
 
-
-        <footer th:replace="~{/layout/footer :: footer}"></footer>
+        <footer th:replace="~{/user/layout/footer :: footer}"></footer>
 
 
         <!-- 리뷰 글쓰기 팝업 -->
@@ -177,11 +177,54 @@
                     <h5 class="pop_title">드래곤 길들이기</h5>
                     <button type="button" class="btn_close" onclick="location.href='#';"></button>
                 </div>
+
                 <div class="pop_input">
-                    <div class="rating"></div>
+                    <div class="rating">
+                        <label class="rating__label rating__label--half" for="starhalf">
+                            <input type="radio" id="starhalf" class="rating__input" name="rating" value="">
+                            <span class="star-icon"></span>
+                        </label>
+                        <label class="rating__label rating__label--full" for="star1">
+                            <input type="radio" id="star1" class="rating__input" name="rating" value="">
+                            <span class="star-icon"></span>
+                        </label>
+                        <label class="rating__label rating__label--half" for="star1half">
+                            <input type="radio" id="star1half" class="rating__input" name="rating" value="">
+                            <span class="star-icon"></span>
+                        </label>
+                        <label class="rating__label rating__label--full" for="star2">
+                            <input type="radio" id="star2" class="rating__input" name="rating" value="">
+                            <span class="star-icon"></span>
+                        </label>
+                        <label class="rating__label rating__label--half" for="star2half">
+                            <input type="radio" id="star2half" class="rating__input" name="rating" value="">
+                            <span class="star-icon"></span>
+                        </label>
+                        <label class="rating__label rating__label--full" for="star3">
+                            <input type="radio" id="star3" class="rating__input" name="rating" value="">
+                            <span class="star-icon"></span>
+                        </label>
+                        <label class="rating__label rating__label--half" for="star3half">
+                            <input type="radio" id="star3half" class="rating__input" name="rating" checked>
+                            <span class="star-icon"></span>
+                        </label>
+                        <label class="rating__label rating__label--full" for="star4">
+                            <input type="radio" id="star4" class="rating__input" name="rating" value="">
+                            <span class="star-icon"></span>
+                        </label>
+                        <label class="rating__label rating__label--half" for="star4half">
+                            <input type="radio" id="star4half" class="rating__input" name="rating" value="">
+                            <span class="star-icon"></span>
+                        </label>
+                        <label class="rating__label rating__label--full" for="star5">
+                            <input type="radio" id="star5" class="rating__input" name="rating" value="">
+                            <span class="star-icon"></span>
+                        </label>
+                    </div>
 
                     <textarea id="myTextarea" maxlength="10000" placeholder="이 작품에 대한 생각을 자유롭게 표현해주세요."></textarea>
                 </div>
+                
                 <div class="pop_footer">
                     <div class="counter">
                         <span id="charCount">0</span> / 10000
@@ -190,7 +233,6 @@
                 </div>
             </div>
         </div>
-
 
     </div>
 
