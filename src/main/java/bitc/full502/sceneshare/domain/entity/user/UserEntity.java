@@ -36,6 +36,12 @@ public class UserEntity {
     @Column
     private String userImg;
 
+    @Column
+    private Enum role;
+
+    @Column
+    private int status;
+
     @OneToMany(mappedBy = "user")
     private List<BookmarkEntity> bookmarks = new ArrayList<>();
 }

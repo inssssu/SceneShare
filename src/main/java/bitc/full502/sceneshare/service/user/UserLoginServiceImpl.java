@@ -3,7 +3,6 @@ package bitc.full502.sceneshare.service.user;
 import bitc.full502.sceneshare.domain.entity.user.UserEntity;
 import bitc.full502.sceneshare.domain.repository.user.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -20,5 +19,10 @@ public class UserLoginServiceImpl implements UserLoginService {
     @Override
     public UserEntity selectUserInfo(String userId) throws Exception {
         return userRepository.findByUserId(userId);
+    }
+
+    @Override
+    public int selectOnlyUsers(String userId) throws Exception {
+        return userRepository.countByUserIdContaining(userId);
     }
 }

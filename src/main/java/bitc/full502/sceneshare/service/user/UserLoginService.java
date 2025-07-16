@@ -7,4 +7,6 @@ public interface UserLoginService {
     int isUserInfo(String userId, String userPw) throws Exception;
 
     UserEntity selectUserInfo(String userId) throws Exception;
+
+    int selectOnlyUsers(String userId) throws Exception;
 }

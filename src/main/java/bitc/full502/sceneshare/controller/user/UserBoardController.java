@@ -24,17 +24,4 @@ public class UserBoardController {
 
         return mv;
     }
-
-//    @GetMapping("/user/boardWrite")
-//    public String boardWrite() {
-//        return "/user/boardWrite";
-//    }
-//
-//    @PostMapping("/user/boardWrite")
-//    public String boardWrite(BoardEntity board) throws Exception {
-//
-//        boardService.boardWrite(board);
-//
-//        return "redirect:/movieDetail/{movieId}";
-//    }
 }
