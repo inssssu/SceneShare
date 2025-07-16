@@ -1,6 +1,7 @@
 package bitc.full502.sceneshare.domain.repository.admin;
 
 import bitc.full502.sceneshare.domain.entity.admin.MovieEntity;
+import bitc.full502.sceneshare.domain.entity.admin.NoticeEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
@@ -19,4 +20,9 @@ public interface MovieRepository extends JpaRepository<MovieEntity, Integer> {
 
     @Query("SELECT m FROM MovieEntity m WHERE m.type = :type AND (m.title LIKE %:keyword% OR m.description LIKE %:keyword%) ORDER BY m.movieId DESC")
     List<MovieEntity> findByTypeAndTitleOrDescription(@Param("type") String type, @Param("keyword") String keyword);
+
+    @Query("SELECT m FROM NoticeEntity m WHERE m.type = :type AND (m.title LIKE %:keyword% OR m.contents LIKE %:keyword%) ORDER BY m.noticeId DESC")
+    List<NoticeEntity> findByTypeAndTitleOrContents(String type, String keyword);
+
+    MovieEntity findByMovieId(int movieId);
 }
