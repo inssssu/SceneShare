@@ -14,6 +14,7 @@ import java.time.LocalDate;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "user_account")
 public class UserAccountEntity {
 
     @Id
@@ -23,16 +24,18 @@ public class UserAccountEntity {
     @Column(nullable = false, unique = true)
     private String username;
 
-    @Column(nullable = false)
-    private String password;
+//    @Column(nullable = false)
+//    private String password;
 
     @Column(nullable = false)
     private String name;
 
-    @Column(unique = true)
-    private String email;
+    private String status;
 
-    private String gender;
+//    @Column(unique = true)
+//    private String email;
+
+//    private String gender;
 
 //    private LocalDate createDate;
 
