@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>사용자 상세정보</title>
+    <link rel="stylesheet" href="/css/userInfoDetail.css" />
+</head>
+<body>
+    <h2>사용자 상세정보</h2>
+    <!-- 사용자 상세보기 섹션: 사용자를 클릭하면 상세정보가 표시됨 -->
+    <div id="userDetailSection" style="display: none;">
+        <h3>사용자 상세정보</h3>
+        <!-- 사용자 상세 정보: 아이디, 이름, 생년월일 등 -->
+        <div class="info-row"><span class="label">아이디:</span><span id="detailId"></span></div>
+        <div class="info-row"><span class="label">이름:</span><span id="detailName"></span></div>
+        <div class="info-row"><span class="label">생년월일:</span><span id="detailBirth"></span></div>
+        <div class="info-row"><span class="label">이메일:</span><span id="detailEmail"></span></div>
+        <div class="info-row"><span class="label">성별:</span><span id="detailGender"></span></div>
+        <div class="info-row"><span class="label">상태:</span><span id="detailStatus"></span></div>
+        <div class="info-row"><span class="label">가입일:</span><span id="detailJoined"></span></div>
+
+        <!-- 뒤로가기 버튼: 사용자가 상세보기에서 목록으로 돌아갈 수 있도록 함 -->
+        <button class="back-btn" onclick="backToList()">← 뒤로가기</button>
+    </div>
+    <!-- 자바스크립트 파일 링크: /js/admin.js 파일을 로드 -->
+    <script src="/js/userInfoDetail.js"></script>
+</body>
+</html>

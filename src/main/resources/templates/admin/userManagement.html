@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8"> <!-- 페이지의 문자 인코딩을 UTF-8로 설정 -->
+    <title>사용자 관리</title> <!-- 브라우저 탭에 표시될 제목 -->
+    <link rel="stylesheet" href="/css/userManagement.css"> <!-- 외부 CSS 파일 링크 -->
+</head>
+<body>
+    <h2>사용자 관리</h2> <!-- 페이지의 제목 표시 -->
+
+    <!-- 검색 바 영역: 아이디나 이름으로 사용자를 검색할 수 있는 입력창 -->
+    <div class="search-bar-container">
+        <input type="text" id="searchInput" placeholder="아이디 또는 이름 검색"> <!-- 사용자의 아이디 또는 이름을 검색하는 입력창 -->
+    </div>
+    <!-- 사용자 리스트 테이블: 사용자 목록을 테이블로 표시 -->
+    <table class="data-table" id="userTable">
+        <thead>
+            <tr>
+                <!-- 테이블 헤더 -->
+                <th class="col-no">번호</th> <!-- 번호 컬럼 -->
+                <th class="col-id">아이디</th> <!-- 아이디 컬럼 -->
+                <th class="col-status">상태</th> <!-- 상태 컬럼 -->
+                <th class="col-actions">관리</th> <!-- 관리(상세보기/삭제 등) 컬럼 -->
+            </tr>
+        </thead>
+        
+    </table>
+    <!-- 자바스크립트 파일 링크: /js/admin.js 파일을 로드 -->
+    <script src="/js/userManagement.js"></script>
+</body>
+</html>
