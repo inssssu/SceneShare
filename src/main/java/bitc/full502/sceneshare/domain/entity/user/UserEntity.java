@@ -40,7 +40,7 @@ public class UserEntity {
     private Enum role;
 
     @Column
-    private int status;
+    private Integer status;
 
     @OneToMany(mappedBy = "user")
     private List<BookmarkEntity> bookmarks = new ArrayList<>();

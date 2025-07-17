@@ -1,6 +1,6 @@
 package bitc.full502.sceneshare.config.user;
 
-import bitc.full502.sceneshare.LoginCheck;
+import bitc.full502.sceneshare.interceptor.LoginCheck;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;

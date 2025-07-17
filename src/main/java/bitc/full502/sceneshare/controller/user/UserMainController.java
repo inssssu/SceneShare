@@ -1,5 +1,6 @@
 package bitc.full502.sceneshare.controller.user;
 
+import bitc.full502.sceneshare.domain.entity.dto.MovieInfoDTO;
 import bitc.full502.sceneshare.domain.entity.user.BoardEntity;
 import bitc.full502.sceneshare.domain.entity.user.MovieEntity;
 import bitc.full502.sceneshare.service.user.MainService;
@@ -23,7 +24,7 @@ public class UserMainController {
     public ModelAndView main() throws Exception {
         ModelAndView mv = new ModelAndView("/user/main");
 
-        List<MovieEntity> movieListBookmarkCnt = mainService.selectBoardListByBookmarkCnt();
+        List<MovieInfoDTO> movieListBookmarkCnt = mainService.selectBoardListByBookmarkCnt();
         mv.addObject("movieListBookmarkCnt", movieListBookmarkCnt);
 
         List<MovieEntity> movieListReleaseDate = mainService.selectBoardListByReleaseDate();
@@ -39,7 +40,7 @@ public class UserMainController {
     public ModelAndView movieListBookmarkCnt() throws Exception {
         ModelAndView mv = new ModelAndView("/user/movieListBookmarkCnt");
 
-        List<MovieEntity> movieListBookmarkCnt = mainService.selectBoardListByBookmarkCnt();
+        List<MovieInfoDTO> movieListBookmarkCnt = mainService.selectBoardListByBookmarkCnt();
         mv.addObject("movieListBookmarkCnt", movieListBookmarkCnt);
 
         return mv;

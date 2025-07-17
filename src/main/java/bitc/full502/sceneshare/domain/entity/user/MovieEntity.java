@@ -38,10 +38,7 @@ public class MovieEntity {
     private LocalDateTime releaseDate;
 
     @Column
-    private Integer bookmarkCnt;
-
-    @Column
-    private Integer rating;
+    private Integer ratingAvg;
 
     @OneToMany(mappedBy = "movie")
     private List<BookmarkEntity> bookmarks = new ArrayList<>();

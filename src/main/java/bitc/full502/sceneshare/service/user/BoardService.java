@@ -6,5 +6,5 @@ public interface BoardService {
 
     BoardEntity selectBoardDetail(int boardId) throws Exception;
 
-    void boardWrite(BoardEntity board) throws Exception;
+    void boardWrite(BoardEntity board, int movieId) throws Exception;
 }

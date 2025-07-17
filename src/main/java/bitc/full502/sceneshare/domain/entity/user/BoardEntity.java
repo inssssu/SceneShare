@@ -30,6 +30,9 @@ public class BoardEntity {
     private String contents;
 
     @Column
+    private Integer rating;
+
+    @Column
     private LocalDateTime createDate;
 
     @Column

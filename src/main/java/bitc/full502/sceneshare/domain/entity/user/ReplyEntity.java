@@ -21,9 +21,6 @@ public class ReplyEntity {
     private int replyId;
 
     @Column
-    private int movieId;
-
-    @Column
     private int userId;
 
     @Column

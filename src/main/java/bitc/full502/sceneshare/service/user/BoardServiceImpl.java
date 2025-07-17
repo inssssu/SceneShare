@@ -18,7 +18,15 @@ public class BoardServiceImpl implements BoardService {
         return board;
     }
 
-    public void boardWrite(BoardEntity board) throws Exception {
+    public void boardWrite(BoardEntity board, int movieId) throws Exception {
         boardDetailRepository.save(board);
+
+
+   //     평점 입력한 사람 각각의 점수
+//        총점 연산
+        // 총 평점 입력 인원 수
+//        평균 점수 연산
+//        받아온 영화번호로 지정한 영화 검색
+//        MovieEntity에 평균 점수 저장
     }
 }

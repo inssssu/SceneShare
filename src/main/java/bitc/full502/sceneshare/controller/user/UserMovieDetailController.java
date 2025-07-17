@@ -4,6 +4,8 @@ import bitc.full502.sceneshare.domain.entity.user.BoardEntity;
 import bitc.full502.sceneshare.domain.entity.user.MovieEntity;
 import bitc.full502.sceneshare.service.user.BoardService;
 import bitc.full502.sceneshare.service.user.MovieDetailService;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,14 +31,14 @@ public class UserMovieDetailController {
     }
 
     @PostMapping("/movieDetail/{movieId}")
-    public ModelAndView boardWrite(BoardEntity board, @PathVariable("movieId") int movieId) throws Exception {
+    public String boardWrite(BoardEntity board, @PathVariable("movieId") int movieId, HttpServletRequest req) throws Exception {
 
-        ModelAndView mv = new ModelAndView("/user/movieDetail");
-        MovieEntity movie = movieDetailService.selectMovieDetail(movieId);
-        boardService.boardWrite(board);
-        mv.addObject("movie", movie);
-        mv.addObject("board", board);
+        HttpSession session = req.getSession();
+        String userId = (String) session.getAttribute("userId");
 
-        return mv;
+        boardService.boardWrite(board, movieId);
+
+        return "redirect:/user/movieDetail/" + movieId;
+
     }
 }
