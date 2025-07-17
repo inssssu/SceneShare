@@ -49,6 +49,11 @@ table.data-table th {
     width: 30%;
 }
 
+.col-name {
+    text-align: center;
+    width: 200px;
+}
+
 .col-status {
     width: 100px;
 }
