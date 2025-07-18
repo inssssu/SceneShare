@@ -1,6 +1,6 @@
 package bitc.full502.sceneshare.controller.admin;
 
-import bitc.full502.sceneshare.domain.entity.user.UserAccountEntity;
+import bitc.full502.sceneshare.domain.entity.user.UserEntity;
 import bitc.full502.sceneshare.service.admin.AdminUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -25,7 +25,7 @@ public class AdminUserManagementController {
 
         ModelAndView mv = new ModelAndView("admin/userManagement");
 
-        List<UserAccountEntity> userList = adminUserService.selectUserAccountList();
+        List<UserEntity> userList = adminUserService.selectUserAccountList();
         mv.addObject("userList", userList);
 
         return mv;
@@ -36,7 +36,7 @@ public class AdminUserManagementController {
     public ModelAndView adminUserInfoDetail(@PathVariable int userIdx) throws Exception {
 
         ModelAndView mv = new ModelAndView("/admin/userInfoDetail");
-        UserAccountEntity user = adminUserService.selectUserAccountDetail(userIdx);
+        UserEntity user = adminUserService.selectUserAccountDetail(userIdx);
         mv.addObject("user", user);
 
         return mv;
@@ -50,7 +50,7 @@ public class AdminUserManagementController {
 
         ModelAndView mv = new ModelAndView("/admin/userManagement");
 
-        List<UserAccountEntity> userList = adminUserService.searchUserByKeyword(trimKeyword);
+        List<UserEntity> userList = adminUserService.searchUserByKeyword(trimKeyword);
         mv.addObject("userList", userList);
         mv.addObject("keyword", keyword);
 

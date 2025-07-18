@@ -19,4 +19,5 @@ public interface MovieRepository extends JpaRepository<MovieEntity, Integer> {
 
     @Query("SELECT m FROM MovieEntity m WHERE m.type = :type AND (m.title LIKE %:keyword% OR m.description LIKE %:keyword%) ORDER BY m.movieId DESC")
     List<MovieEntity> findByTypeAndTitleOrDescription(@Param("type") String type, @Param("keyword") String keyword);
+
 }

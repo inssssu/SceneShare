@@ -1,15 +1,15 @@
 package bitc.full502.sceneshare.domain.repository;
 
-import bitc.full502.sceneshare.domain.entity.user.UserAccountEntity;
+import bitc.full502.sceneshare.domain.entity.user.UserEntity;
 import org.springframework.data.repository.Repository;
 
 import java.util.List;
 
-public interface UserRepository extends Repository<UserAccountEntity, Integer> {
+public interface UserRepository extends Repository<UserEntity, Integer> {
 
-    UserAccountEntity findByUserIdx(int userIdx);
+    UserEntity findByUserIdx(int userIdx);
 
-    List<UserAccountEntity> findAllByOrderByUserIdxDesc();
+    List<UserEntity> findAllByOrderByUserIdxDesc();
 
-    List<UserAccountEntity> findByUsernameContainingOrNameContaining(String username, String name);
+    List<UserEntity> findByUsernameContainingOrNameContaining(String username, String name);
 }

@@ -1,13 +1,13 @@
 package bitc.full502.sceneshare.domain.entity.user;
 
-import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -15,7 +15,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "user_account")
-public class UserAccountEntity {
+public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,8 +37,19 @@ public class UserAccountEntity {
 
 //    private String gender;
 
+//    private String userImg;
+
 //    private LocalDate createDate;
 
     // role - user 추가 필요
+
+//    @OneToMany(mappedBy = "user")
+//    private List<BoardEntity> boards;
+
+//    @OneToMany(mappedBy = "user")
+//    private List<ReplyEntity> replies;
+
+//    @OneToMany(mappedBy = "user")
+//    private List<BookmarkEntity> bookmarks = new ArrayList<>();
 
 }

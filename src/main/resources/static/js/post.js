@@ -2,14 +2,15 @@ const perPage = 30;
 let currentPage = 1;
 
 // 로컬스토리지에서 게시물 불러오기
-function loadPosts() {
-    return JSON.parse(localStorage.getItem("posts") || "[]");
-}
+// 영화 api 사용하는 localStorage? -> 더미데이터를 넣어서 사용한 내용이라 api 사용시 삭제
+// function loadPosts() {
+//     return JSON.parse(localStorage.getItem("posts") || "[]");
+// }
 
 // 로컬스토리지에 게시물 저장하기
-function savePosts(posts) {
-    localStorage.setItem("posts", JSON.stringify(posts));
-}
+// function savePosts(posts) {
+//     localStorage.setItem("posts", JSON.stringify(posts));
+// }
 
 // 현재 페이지에 해당하는 게시물만 추출
 function paginate(data, page) {

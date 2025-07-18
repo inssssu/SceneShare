@@ -26,6 +26,10 @@ public class MovieEntity {
 
     // ERD 의 movie, notice 에 option 컬럼 추가 필요
     private String type;
-//    private LocalDate releaseDate;
+
+    @Column
+    private LocalDate createDate;
+
+    private int hitCnt;
 //    private String posterUrl;
 }

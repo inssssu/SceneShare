@@ -4,7 +4,9 @@
     <meta charset="UTF-8" />
     <title>게시물 관리</title>
     <!-- 게시물 관리용 CSS 외부 파일 연결 -->
-    <link rel="stylesheet" href="/css/post-style.css">
+    <link rel="stylesheet" href="/static/css/post-style.css">
+    <script src="/static/js/post.js"></script>
+
 </head>
 <body>
     <h2>게시물 관리</h2>
@@ -12,13 +14,13 @@
     <div id="tableContainer">
         <div id="searchContainer">
             <!-- 필터 선택: 전체 / 공지 / 영화 -->
-            <select id="filterType">
+            <select id="filterType" name="option">
                 <option value="all">전체</option>
                 <option value="notice">공지</option>
                 <option value="movie">영화</option>
             </select>
             <!-- 키워드 검색창: 제목, 내용, 작성자 -->
-            <input type="text" id="searchInput" placeholder="제목, 내용 검색" />
+            <input type="text" id="searchInput" name="keyword" placeholder="제목, 내용 검색" />
         </div>
         <!-- 게시물 리스트 테이블 -->
         <table id="postTable">
@@ -44,6 +46,5 @@
     <!-- 게시물 상세보기 영역 -->
     <div id="postDetailSection"></div>
     <!-- 외부 JS 로딩 -->
-    <script src="/js/post.js"></script>
 </body>
 </html>
