@@ -29,7 +29,7 @@ $(() => {
 
 
     // textarea 글자수 
-    const textarea = document.getElementById('myTextarea');
+    const textarea = document.getElementById('contents');
     const charCount = document.getElementById('charCount');
 
     textarea.addEventListener('input', () => {
@@ -121,7 +121,51 @@ $(() => {
     }
 
 
+    // 보고싶어요(좋아요)
+    $(".bookmark").on('click', function () {
+      alert("좋아요 버튼 클릭!!" + "\n" + "/user/likePost/" + $("#movie-id").val());
+
+      $.ajax({
+        url: "/user/bookmarks/likePost/" + $("#movie-id").val(),
+        type: "POST",
+        success: function (data) {
+          alert(data);
+          console.log(data);
+        },
+        error: function (xhr, textStatus, errorThrown) {
+          if (xhr.status == 401) {
+            const msg = JSON.parse(xhr.responseText).msg;
+            alert(msg);
+            location.href = "/login";
+          }
+          else {
+            alert("에러 발생");
+          }
+        }
+      });
+    });
+
+
+    // header 검색바
+    // $("#btn-search").on("click", function () {
+    //   let result = $("#search-movie").val();
+    //   location.href = "/main/search?searchMovie=" + result;
+    // });
+
+
+    // header 검색바(엔터키로 수정)
+    $("#search-movie").on("keydown", function (e) {
+      if (e.key === "Enter" || e.keyCode === 13) {
+        let result = $(this).val().trim();
+        if (result !== "") {
+          location.href = "/main/search?searchMovie=" + encodeURIComponent(result);
+        } else {
+          alert("검색어를 입력해주세요!");
+        }
+      }
+    });
+
+
 
   });
-
 });

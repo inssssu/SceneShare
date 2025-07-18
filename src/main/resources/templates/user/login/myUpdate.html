@@ -58,15 +58,20 @@
                             <!-- <label for="user-email">E-mail</label> -->
                             <input type="text" id="user-email" name="userEmail" placeholder="이메일">
                         </li>
+
+                        <!-- 성별 선택 라디오 버튼으로 수정 -->
                         <li>
-                            <!-- <label for="user-gender">성별</label> -->
-                            <select class="form-control me-3" id="user-gender" name="gender">
-                                <option value="" selected>성별을 선택하세요</option>
-                                <option value="Male">남성</option>
-                                <option value="Female">여성</option>
-                            </select>
+                            <div class="radio-btn-group flex" role="group" aria-label="성별 선택">
+                                <input type="radio" class="btn-check" name="gender" id="gender-male" value="Male" autocomplete="off" checked>
+                                <label class="btn male" for="gender-male">남성</label>
+                        
+                                <input type="radio" class="btn-check" name="gender" id="gender-female" value="Female" autocomplete="off">
+                                <label class="btn female" for="gender-female">여성</label>
+                            </div>
                         </li>
                     </ul>
+
+                    <p class="essential">* E-mail을 제외한 모든 사항은 필수입니다.</p>
 
                     <div class="join-btn-area">
                         <button type="submit" class="btn-my-update">수정</button>

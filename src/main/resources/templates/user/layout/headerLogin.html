@@ -21,7 +21,7 @@
 
 <body>
 
-    <header th:fragment="headerBasic(text)">
+    <header th:fragment="headerlogin(text)">
         <section class="container">
             <h1 class="logo">
                 <a href="/main" th:href="@{/main}"><em>Scene, </em>Share</a>
@@ -35,18 +35,14 @@
                     </form>
                 </li>
 
-                <!-- 로그아웃 시 -->
-                <li class="top-login-btn"><a href="/user/login" th:href="@{/user/login.do}">로그인</a></li>
-                <li class="top-join-btn"><a href="/user/join" th:href="@{/user/join.do}">회원가입</a></li>
-
                 <!-- 로그인 시 -->
-<!--                <li class="top-login-btn"><a href="/user/login/logout.do" th:href="@{/user/logout.do}">로그아웃</a></li>-->
-<!--                <li class="top-my-btn">-->
-<!--                    <a href="/user/sub/myPage" th:href="@{/user/myPage.do}" class="hover-name imgBox">-->
-<!--                        <img src="../img/test-profile-img.jpg" class="profile-img" alt="마이페이지">-->
-<!--                        <span class="tooltip">사용자ID</span>-->
-<!--                    </a>-->
-<!--                </li>-->
+                <li class="top-login-btn"><a href="/user/login/logout.do" th:href="@{/user/logout.do}">로그아웃</a></li>
+                <li class="top-my-btn">
+                    <a href="/user/sub/myPage" th:href="@{/user/myPage.do}" class="hover-name imgBox">
+                        <img th:src="@{'/img/profile/' + ${board.userImg}}" class="profile-img" alt="마이페이지">
+                        <span class="tooltip" th:text="${board.userId}">userId</span>
+                    </a>
+                </li>
             </ul>
         </section>
     </header>

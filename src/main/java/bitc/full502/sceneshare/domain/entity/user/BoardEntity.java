@@ -1,0 +1,49 @@
+package bitc.full502.sceneshare.domain.entity.user;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.time.LocalDateTime;
+
+@Entity
+@Table(name = "board_table")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class BoardEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int boardId;
+
+    @Column
+    private String userId;
+
+    @Column
+    private String movie;
+
+    @Column
+    private String title;
+
+    @Column
+    private String contents;
+
+    @Column
+    private Integer rating;
+
+    @Column
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDateTime createDate;
+
+    @Column
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDateTime updateDate;
+
+    @Column
+    private String genre;
+
+    @Column
+    private String reply;
+}
