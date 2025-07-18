@@ -30,3 +30,10 @@ insert into notice_board (notice_id, title, contents, type)
 values
     (1, '공지사항 첫번째글', '공지사항 첫번째 내용', 'notice'),
     (2, '공지사항 두번째글', '공지사항 두번째 내용', 'notice');
+
+insert into comment_table (title, contents, genre, user_idx, movie_id)
+values
+    ('드래곤 길들이기', '코멘트 내용1', '모험', '1', '2'),
+    ('드래곤 길들이기', '코멘트 내용2', '모험', '2', '2'),
+    ('드래곤 길들이기', '코멘트 내용3', '모험', '3', '2');
+
