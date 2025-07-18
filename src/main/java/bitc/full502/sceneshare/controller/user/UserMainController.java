@@ -27,7 +27,7 @@ public class UserMainController {
         List<MovieInfoDTO> movieListBookmarkCnt = mainService.selectBoardListByBookmarkCnt();
         mv.addObject("movieListBookmarkCnt", movieListBookmarkCnt);
 
-        List<MovieEntity> movieListReleaseDate = mainService.selectBoardListByReleaseDate();
+        List<MovieInfoDTO> movieListReleaseDate = mainService.selectBoardListByReleaseDate();
         mv.addObject("movieListReleaseDate", movieListReleaseDate);
 
         List<BoardEntity> boardList = mainService.selectBoardList();
@@ -50,7 +50,7 @@ public class UserMainController {
     public ModelAndView movieListReleaseDate() throws Exception {
         ModelAndView mv = new ModelAndView("/user/movieListReleaseDate");
 
-        List<MovieEntity> movieListReleaseDate = mainService.selectBoardListByReleaseDate();
+        List<MovieInfoDTO> movieListReleaseDate = mainService.selectBoardListByReleaseDate();
         mv.addObject("movieListReleaseDate", movieListReleaseDate);
 
         return mv;

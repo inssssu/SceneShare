@@ -40,8 +40,10 @@
           </thead>
           <tbody>
           <tr th:if="${#lists.size(movieListBookmarkCnt)} > 0" th:each="item : ${movieListBookmarkCnt}">
-            <td><a href="#" th:href="@{|/movieDetail/${item.movieId}|}" th:text="${item.posterUrl}">개봉일</a></td>
             <td><a href="#" th:href="@{|/movieDetail/${item.movieId}|}" th:text="${item.movieTitle}">영화 제목</a></td>
+            <td><a href="#" th:href="@{|/movieDetail/${item.movieId}|}" th:text="${item.moviePosterUrl}">영화 포스터</a></td>
+            <td><a href="#" th:href="@{|/movieDetail/${item.movieId}|}" th:text="${item.movieRatingAvg}">영화 평점</a></td>
+            <td><a href="#" th:href="@{|/movieDetail/${item.movieId}|}" th:text="${item.bookmarkCnt}">영화 보고싶어요</a></td>
           </tr>
           <tr th:unless="${#lists.size(movieListBookmarkCnt)} > 0">
             <td colspan="5">조회된 데이터가 없습니다.</td>
@@ -57,10 +59,10 @@
           </thead>
           <tbody>
           <tr th:if="${#lists.size(movieListReleaseDate)} > 0" th:each="item : ${movieListReleaseDate}">
-            <td><a href="#" th:href="@{|/movieDetail/${item.movieId}|}" th:text="${item.releaseDate}">개봉일</a></td>
             <td><a href="#" th:href="@{|/movieDetail/${item.movieId}|}" th:text="${item.movieTitle}">영화 제목</a></td>
-            <td><a href="#" th:href="@{|/movieDetail/${item.movieId}|}" th:text="${item.movieDescription}">영화 줄거리</a></td>
-            <td><a href="#" th:href="@{|/movieDetail/${item.movieId}|}" th:text="${item.movieDirector}">영화 감독</a></td>
+            <td><a href="#" th:href="@{|/movieDetail/${item.movieId}|}" th:text="${item.moviePosterUrl}">영화 포스터</a></td>
+            <td><a href="#" th:href="@{|/movieDetail/${item.movieId}|}" th:text="${item.movieRatingAvg}">영화 평점</a></td>
+            <td><a href="#" th:href="@{|/movieDetail/${item.movieId}|}" th:text="${item.bookmarkCnt}">영화 보고싶어요</a></td>
           </tr>
           <tr th:unless="${#lists.size(movieListReleaseDate)} > 0">
             <td colspan="5">조회된 데이터가 없습니다.</td>

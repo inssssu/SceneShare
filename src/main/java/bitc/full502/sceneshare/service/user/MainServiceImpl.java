@@ -24,6 +24,7 @@ public class MainServiceImpl implements MainService {
 
     @Override
     public List<MovieInfoDTO> selectBoardListByBookmarkCnt() throws Exception {
+
         List<Object[]> selectmovie = mainRepository.findAllByOrderByCountBookmarksDesc();
         List<MovieInfoDTO> movieInfoList = new ArrayList<>();
 
@@ -31,8 +32,8 @@ public class MainServiceImpl implements MainService {
             MovieInfoDTO movieInfoDTO = new MovieInfoDTO();
             movieInfoDTO.setMovieId((int)item[0]);
             movieInfoDTO.setMovieTitle((String)item[1]);
-            movieInfoDTO.setBookmarkCnt((int)item[2]);
-            movieInfoDTO.setMovieRatingAvg((int)item[3]);
+            movieInfoDTO.setBookmarkCnt((Long) item[2]);
+            movieInfoDTO.setMovieRatingAvg((Integer) item[3]);
             movieInfoDTO.setMoviePosterUrl((String)item[4]);
 
             movieInfoList.add(movieInfoDTO);
@@ -42,8 +43,22 @@ public class MainServiceImpl implements MainService {
     }
 
     @Override
-    public List<MovieEntity> selectBoardListByReleaseDate() throws Exception {
-        return mainRepository.findAllByOrderByReleaseDateDesc();
+    public List<MovieInfoDTO> selectBoardListByReleaseDate() throws Exception {
+        List<Object[]> selectmovie =  mainRepository.findAllByOrderByReleaseDateDesc();
+        List<MovieInfoDTO> movieInfoList = new ArrayList<>();
+
+        for (Object[] item : selectmovie) {
+            MovieInfoDTO movieInfoDTO = new MovieInfoDTO();
+            movieInfoDTO.setMovieId((int)item[0]);
+            movieInfoDTO.setMovieTitle((String)item[1]);
+            movieInfoDTO.setBookmarkCnt((Long) item[2]);
+            movieInfoDTO.setMovieRatingAvg((Integer) item[3]);
+            movieInfoDTO.setMoviePosterUrl((String)item[4]);
+
+            movieInfoList.add(movieInfoDTO);
+        }
+
+        return movieInfoList;
     }
 
     @Override

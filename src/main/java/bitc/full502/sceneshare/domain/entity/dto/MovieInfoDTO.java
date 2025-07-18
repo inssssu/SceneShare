@@ -9,6 +9,5 @@ public class MovieInfoDTO {
     private String movieTitle;
     private Integer movieRatingAvg;
     private String moviePosterUrl;
-    private int bookmarkCnt;
-
+    private Long bookmarkCnt;
 }

@@ -10,5 +10,7 @@ public interface MainRepository extends JpaRepository<MovieEntity,Integer>{
 
     @Query("select bmk.movie.movieId, bmk.movie.movieTitle, count(bmk.bookmarkId), bmk.movie.ratingAvg, bmk.movie.posterUrl from BookmarkEntity as bmk group by bmk.movie.movieId order by count(bmk.bookmarkId) desc")
     List<Object[]> findAllByOrderByCountBookmarksDesc();
-    List<MovieEntity> findAllByOrderByReleaseDateDesc();
+
+    @Query("select bmk.movie.movieId, bmk.movie.movieTitle, count(bmk.bookmarkId), bmk.movie.ratingAvg, bmk.movie.posterUrl from BookmarkEntity as bmk group by bmk.movie.movieId order by bmk.movie.releaseDate desc")
+    List<Object[]> findAllByOrderByReleaseDateDesc();
 }

@@ -11,7 +11,7 @@ public interface MainService {
 
     List<MovieInfoDTO> selectBoardListByBookmarkCnt() throws Exception;
 
-    List<MovieEntity> selectBoardListByReleaseDate() throws Exception;
+    List<MovieInfoDTO> selectBoardListByReleaseDate() throws Exception;
 
     List<BoardEntity> selectBoardList() throws Exception;
 
