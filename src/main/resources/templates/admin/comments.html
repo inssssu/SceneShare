@@ -5,13 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>코멘트/댓글 관리자 페이지</title>
     <!-- CSS 파일 연결 -->
+<<<<<<< Updated upstream
     <link rel="stylesheet" href="/css/comments.css">
 </head>
 
+=======
+    <link rel="stylesheet" href="/static/css/comments.css">
+</head>
+>>>>>>> Stashed changes
 <body>
     <div class="container">
         <!-- 관리자 페이지 제목 -->
         <h1>코멘트/댓글 관리자 페이지</h1>
+<<<<<<< Updated upstream
 
         <!-- 검색바 입력 -->
         <div class="search-bar">
@@ -19,18 +25,36 @@
         </div>
 
         <!-- 사용자 테이블 -->
+=======
+        <!-- 검색바 입력 -->
+        <div class="search-bar">
+            <!-- 사용자 ID, 이름, 코멘트 내용 검색 가능 -->
+            <input type="text" id="searchUser" placeholder="사용자 ID, 이름 또는 코멘트 내용 검색" />
+        </div>
+        <!-- 사용자 목록 테이블 -->
+>>>>>>> Stashed changes
         <table class="user-table" id="userTable">
             <thead>
                 <tr>
                     <th>번호</th>
+<<<<<<< Updated upstream
                     <th onclick="sortTable('joinDate')">가입일</th>
                     <th>사용자 ID</th>
                     <th onclick="sortTable('name')">이름</th>
+=======
+                    <!-- 가입일 컬럼 클릭 시 정렬 -->
+                    <th onclick="sortTable('joinDate')">가입일</th>
+                    <th>사용자 ID</th>
+                    <!-- 이름 컬럼 클릭 시 정렬 -->
+                    <th onclick="sortTable('name')">이름</th>
+                    <!-- 상태 컬럼 클릭 시 정렬 -->
+>>>>>>> Stashed changes
                     <th onclick="sortTable('status')">상태</th>
                     <th>관리</th>
                 </tr>
             </thead>
             <tbody>
+<<<<<<< Updated upstream
                 <!-- JavaScript로 사용자 목록이 렌더링될 영역 -->
             </tbody>
         </table>
@@ -41,5 +65,16 @@
 
     <!-- JavaScript 파일 연결 -->
     <script src="/js/comments.js"></script>
+=======
+                <!-- 사용자 데이터가 JavaScript로 동적으로 렌더링되는 영역 -->
+            </tbody>
+        </table>
+
+        <!-- 페이지네이션 버튼들이 렌더링되는 영역 --> 
+        <div id="pagination" class="pagination"></div>
+    </div>
+    <!-- 자바스크립트 파일 연결 -->
+    <script src="/static/js/comments.js"></script>
+>>>>>>> Stashed changes
 </body>
 </html>

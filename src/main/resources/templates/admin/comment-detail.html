@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>코멘트/댓글 상세 페이지</title>
+    <!-- 외부 CSS 파일 링크 -->
+    <link rel="stylesheet" href="css/comment-detail.css">
+</head>
+<body>
+    <div class="container">
+        <h1>사용자 활동 내역</h1>
+        <!-- 사용자 요약 정보 -->
+        <section class="user-summary">
+            <p><strong>가입일 : </strong><span id="joinDate">2024-03-01</span></p>
+            <p><strong>사용자 ID : </strong><span id="userId">user123</span></p>
+            <p><strong>사용자 이름 : </strong><span id="userName">홍길동</span></p>
+            <p><strong>총 작성 건수 : </strong><span id="totalCount">999999+</span></p>
+            <p><strong>최근 작성일 : </strong><span id="lastDate">2025-07-16</span></p>
+            <!-- 목록 버튼 추가 -->
+            <a href="comments.html">목록</a>
+        </section>
+        <div id="commentSections"></div>
+        <!-- 페이지네이션 버튼 -->
+        <div id="pagination" class="pagination"></div>
+    </div>
+    <!-- 삭제 확인 모달 -->
+    <div id="modalOverlay" class="modal-overlay" style="display: none">
+        <div class="modal">
+            <p>정말 삭제하시겠습니까?</p>
+            <button class="confirm" onclick="deleteConfirmed()">삭제</button>
+            <button class="cancel" onclick="closeModal()">취소</button>
+        </div>
+    </div>
+    <!-- 외부 JavaScript 파일 링크 -->
+    <script src="js/comment-detail.js"></script>
+</body>
+</html>
