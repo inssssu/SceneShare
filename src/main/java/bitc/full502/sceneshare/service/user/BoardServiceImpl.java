@@ -5,6 +5,8 @@ import bitc.full502.sceneshare.domain.repository.user.BoardDetailRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class BoardServiceImpl implements BoardService {
@@ -29,4 +31,35 @@ public class BoardServiceImpl implements BoardService {
 //        받아온 영화번호로 지정한 영화 검색
 //        MovieEntity에 평균 점수 저장
     }
+
+
+
+    @Override
+    public Object[] boardCnt() throws Exception{
+        Object[] board = boardDetailRepository.countByBoardId();
+        return board;
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

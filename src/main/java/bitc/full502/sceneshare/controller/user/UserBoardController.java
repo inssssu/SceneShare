@@ -14,7 +14,7 @@ public class UserBoardController {
 
     private final BoardService boardService;
 
-    @GetMapping("/user/boardDetail")
+    @GetMapping("/user/boardDetail/{boardId}")
     public ModelAndView boardDetail(@RequestParam("boardId") int boardId) throws Exception {
         ModelAndView mv = new ModelAndView("/user/boardDetail");
 

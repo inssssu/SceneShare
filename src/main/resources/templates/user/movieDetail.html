@@ -75,7 +75,13 @@
             <div class="col-sm-8">
                 <div class="input-group mt-2">
                     <span class="input-group-text">평점</span>
-                    <input type="text" class="form-control" name="ratingAvg" id="ratingAvg" th:value="${movie.ratingAvg}">
+                    <input type="text" class="form-control" name="ratingAvg" th:value="${rating}">
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="input-group mt-3">
+                    <span class="input-group-text">게시글 갯수</span>
+                    <input type="text" class="form-control" name="boardCnt" th:value="${board}">
                 </div>
             </div>
             <div class="col-sm-8">

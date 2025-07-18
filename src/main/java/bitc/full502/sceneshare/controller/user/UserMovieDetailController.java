@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 @Controller
 @RequiredArgsConstructor
 public class UserMovieDetailController {
@@ -23,9 +25,12 @@ public class UserMovieDetailController {
     @GetMapping("/movieDetail/{movieId}")
         public ModelAndView movieDetail(@PathVariable("movieId") int movieId) throws Exception {
         ModelAndView mv = new ModelAndView("/user/movieDetail");
-
+        Object[] board = boardService.boardCnt();
+        Object[] rating = movieDetailService.ratingAvg();
         MovieEntity movie = movieDetailService.selectMovieDetail(movieId);
         mv.addObject("movie", movie);
+        mv.addObject("board", board);
+        mv.addObject("rating", rating);
 
         return mv;
     }

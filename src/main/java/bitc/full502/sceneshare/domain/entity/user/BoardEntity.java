@@ -15,13 +15,13 @@ public class BoardEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int boardId;
+    private Integer boardId;
 
     @Column
     private String userId;
 
     @Column
-    private String movie;
+    private Integer movieId;
 
     @Column
     private String title;

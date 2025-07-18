@@ -6,6 +6,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class MovieDetailServiceImpl implements MovieDetailService {
@@ -15,6 +18,12 @@ public class MovieDetailServiceImpl implements MovieDetailService {
     @Override
     public MovieEntity selectMovieDetail(@PathVariable("movieId") int movieId) throws Exception {
          return movieDetailRepository.findByMovieId(movieId);
+    }
+
+    @Override
+    public Object[] ratingAvg() throws Exception {
+        Object[] ratingAvg = movieDetailRepository.getRatingAvg();
+        return ratingAvg;
     }
 
 }

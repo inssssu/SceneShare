@@ -16,6 +16,7 @@ public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)
     private int userIdx;
 
     @Column(nullable = false, unique = true)

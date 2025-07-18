@@ -18,12 +18,13 @@ public class ReplyEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)
     private int replyId;
 
-    @Column
+    @Column(nullable = false)
     private int userId;
 
-    @Column
+    @Column(nullable = false)
     private int boardId;
 
     @Column
