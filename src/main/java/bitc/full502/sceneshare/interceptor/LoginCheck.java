@@ -27,12 +27,11 @@ public class LoginCheck implements HandlerInterceptor {
             if (isAjax == true) {
                 System.out.println("ajax 통신 중, " + req.getHeader("X-Requested-With"));
 
-                resp.setContentType("application/json;charset=utf-8"); // json 방식으로 클라이언트에 전송한다고 설정
-                resp.setStatus(HttpServletResponse.SC_UNAUTHORIZED); // 401 에러 강제 발생
+                resp.setContentType("application/json;charset=utf-8");
+                resp.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
 
                 PrintWriter writer = resp.getWriter();
 
-//                클라이언트에게 전달할 메시지, json 문자열로 출력함
                 writer.write("{\"msg\": \"로그인이 필요한 서비스입니다.\"}");
             }
             else {

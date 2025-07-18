@@ -24,12 +24,12 @@
                     return;
                 }
 
-                if (flagUserId == "") {
-                    alert("중복되는 아이디입니다.");
-                    $("#user-id").focus();
-                    e.preventDefault();
-                    return;
-                }
+                // if (flagUserId == "") {
+                //     alert("중복되는 아이디입니다.");
+                //     $("#user-id").focus();
+                //     e.preventDefault();
+                //     return;
+                // }
 
                 if (flagUserPw == "") {
                     alert("비밀번호를 입력해주세요")
@@ -51,8 +51,6 @@
                     e.preventDefault();
                     return;
                 }
-
-                alert("회원가입이 완료되었습니다");
             });
         });
     </script>

@@ -8,5 +8,5 @@ public interface UserLoginService {
 
     UserEntity selectUserInfo(String userId) throws Exception;
 
-    int selectOnlyUsers(String userId) throws Exception;
+    int isUserId(String userId) throws Exception;
 }

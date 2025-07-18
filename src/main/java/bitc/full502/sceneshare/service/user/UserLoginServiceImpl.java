@@ -21,8 +21,10 @@ public class UserLoginServiceImpl implements UserLoginService {
         return userRepository.findByUserId(userId);
     }
 
+
     @Override
-    public int selectOnlyUsers(String userId) throws Exception {
-        return userRepository.countByUserIdContaining(userId);
+    public int isUserId(String userId) throws Exception{
+        return userRepository.countByUserId(userId);
     }
+
 }

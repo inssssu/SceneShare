@@ -8,5 +8,5 @@ public interface UserRepository extends JpaRepository<UserEntity, Integer> {
 
     int countByUserIdAndUserPw(String userId, String userPw) throws Exception;
 
-    int countByUserIdContaining(String userId) throws Exception;
+    int countByUserId(String userId) throws Exception;
 }

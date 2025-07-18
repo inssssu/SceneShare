@@ -4,14 +4,14 @@ import bitc.full502.sceneshare.domain.entity.user.UserEntity;
 import bitc.full502.sceneshare.service.user.UserJoinService;
 import bitc.full502.sceneshare.service.user.UserLoginService;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.io.PrintWriter;
 
 @RequiredArgsConstructor
 @Controller
@@ -82,15 +82,36 @@ public class UserLoginController {
     }
 
     @GetMapping("/user/join.do")
-    public String join() {
+    public String join() throws Exception {
         return "/user/join";
     }
 
     @PostMapping("/user/create")
-    public String createUser(UserEntity userIdx) throws Exception {
-        userJoinService.newUser(userIdx);
+    public void createUser(UserEntity userIdx, @RequestParam("userId") String userId, HttpServletResponse resp) throws Exception {
 
-        return "redirect:/user/login.do";
+        int result = userLoginService.isUserId(userId);
+
+        if (result == 0) {
+            userJoinService.newUser(userIdx);
+
+            resp.setContentType("text/html;charset=UTF-8");
+            PrintWriter writer = resp.getWriter();
+
+            String script = "<script>";
+            script += "alert('회원가입이 완료되었습니다.');";
+            script += "location.href='/user/login.do';";
+            script += "</script>";
+            writer.print(script);
+        }
+        else {
+            resp.setContentType("text/html;charset=UTF-8");
+            PrintWriter writer = resp.getWriter();
+
+            String script = "<script>";
+            script += "alert('중복되는 아이디입니다.');";
+            script += "location.href='/user/join.do';";
+            script += "</script>";
+            writer.print(script);
+        }
     }
-
 }
