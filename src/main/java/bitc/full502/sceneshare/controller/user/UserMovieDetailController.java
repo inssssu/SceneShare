@@ -35,15 +35,11 @@ public class UserMovieDetailController {
         return mv;
     }
 
-    @PostMapping("/movieDetail/{movieId}")
-    public String boardWrite(BoardEntity board, @PathVariable("movieId") int movieId, HttpServletRequest req) throws Exception {
-
-        HttpSession session = req.getSession();
-        String userId = (String) session.getAttribute("userId");
-
-        boardService.boardWrite(board, movieId);
-
-        return "redirect:/user/movieDetail/" + movieId;
-
-    }
+//    @PostMapping("/movieDetail/{movieId}")
+//    public String boardWrite(BoardEntity board, @PathVariable("movieId") int movieId, HttpServletRequest req) throws Exception {
+//        boardService.boardWrite(board, movieId);
+//
+//        return "redirect:/user/movieDetail/" + movieId;
+//
+//    }
 }

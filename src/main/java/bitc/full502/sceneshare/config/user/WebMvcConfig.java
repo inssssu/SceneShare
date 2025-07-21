@@ -14,6 +14,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
                 .addPathPatterns("/user/**")
                 .addPathPatterns("/main/**")
                 .addPathPatterns("/bookmarks/**")
+                .addPathPatterns("/movieDetail/**")
                 .excludePathPatterns("/user/login.do")
                 .excludePathPatterns("/user/loginProcess.do")
                 .excludePathPatterns("/user/loginFail.do")
@@ -22,7 +23,9 @@ public class WebMvcConfig implements WebMvcConfigurer {
                 .excludePathPatterns("/main")
                 .excludePathPatterns("/user/create")
                 .excludePathPatterns("/main/search")
-                .excludePathPatterns("/user/searchResult");
-
+                .excludePathPatterns("/user/searchResult")
+                .excludePathPatterns("/main/movieListBookmarkCnt")
+                .excludePathPatterns("/main/movieListReleaseDate")
+                .excludePathPatterns("/main/boardList");
     }
 }

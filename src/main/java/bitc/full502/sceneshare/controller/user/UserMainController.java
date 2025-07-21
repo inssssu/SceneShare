@@ -21,7 +21,7 @@ public class UserMainController {
     private final MainService mainService;
 
     @GetMapping("/main")
-    public ModelAndView main() throws Exception {
+    public ModelAndView mainPage() throws Exception {
         ModelAndView mv = new ModelAndView("/user/main");
 
         List<MovieInfoDTO> movieListBookmarkCnt = mainService.selectBoardListByBookmarkCnt();
