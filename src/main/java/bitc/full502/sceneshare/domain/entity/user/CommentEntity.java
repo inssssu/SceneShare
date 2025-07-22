@@ -8,7 +8,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -33,7 +32,7 @@ public class CommentEntity {
 
     @ManyToOne
     @JoinColumn(name = "user_idx", nullable = false)
-    private UserAccountEntity user;
+    private UserEntity user;
 
     @ManyToOne
     @JoinColumn(name = "movie_id", nullable = false)

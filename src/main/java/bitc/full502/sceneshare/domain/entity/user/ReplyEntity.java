@@ -28,5 +28,5 @@ public class ReplyEntity {
 
     @ManyToOne
     @JoinColumn(name = "user_idx", nullable = false)
-    private UserAccountEntity user;
+    private UserEntity user;
 }

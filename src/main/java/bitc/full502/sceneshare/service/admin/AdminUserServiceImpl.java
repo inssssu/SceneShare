@@ -1,6 +1,6 @@
 package bitc.full502.sceneshare.service.admin;
 
-import bitc.full502.sceneshare.domain.entity.user.UserAccountEntity;
+import bitc.full502.sceneshare.domain.entity.user.UserEntity;
 import bitc.full502.sceneshare.domain.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,22 +15,22 @@ public class AdminUserServiceImpl implements AdminUserService {
 
     // 사용자 리스트
     @Override
-    public List<UserAccountEntity> selectUserAccountList() {
+    public List<UserEntity> selectUserAccountList() {
         return userRepository.findAllByOrderByUserIdxDesc();
     }
 
     // 사용자 상세
     @Override
-    public UserAccountEntity selectUserAccountDetail(int userIdx) {
+    public UserEntity selectUserAccountDetail(int userIdx) {
 
-        UserAccountEntity user = userRepository.findByUserIdx(userIdx);
+        UserEntity user = userRepository.findByUserIdx(userIdx);
 
         return user;
     }
 
     // 사용자 검색
     @Override
-    public List<UserAccountEntity> searchUserByKeyword(String keyword) {
+    public List<UserEntity> searchUserByKeyword(String keyword) {
         return userRepository.findByUsernameContainingOrNameContaining(keyword, keyword);
     }
 }

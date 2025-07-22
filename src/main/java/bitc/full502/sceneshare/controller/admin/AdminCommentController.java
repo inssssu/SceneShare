@@ -1,7 +1,7 @@
 package bitc.full502.sceneshare.controller.admin;
 
 import bitc.full502.sceneshare.domain.entity.user.CommentEntity;
-import bitc.full502.sceneshare.domain.entity.user.UserAccountEntity;
+import bitc.full502.sceneshare.domain.entity.user.UserEntity;
 import bitc.full502.sceneshare.service.admin.AdminCommentService;
 import bitc.full502.sceneshare.service.admin.AdminUserService;
 import lombok.RequiredArgsConstructor;
@@ -26,7 +26,7 @@ public class AdminCommentController {
     public ModelAndView commentList() {
 
         ModelAndView mv = new ModelAndView("admin/commentManagement");
-        List<UserAccountEntity> userList = adminUserService.selectUserAccountList();
+        List<UserEntity> userList = adminUserService.selectUserAccountList();
         mv.addObject("userList", userList);
 
         return mv;
@@ -37,11 +37,25 @@ public class AdminCommentController {
 
         ModelAndView mv = new ModelAndView("admin/commentDetail");
 
-        UserAccountEntity user = adminUserService.selectUserAccountDetail(userIdx);
-        mv.addObject("user", user);
-
+        UserEntity user = adminUserService.selectUserAccountDetail(userIdx);
         CommentEntity comments = adminCommentService.selectCommentDetail(userIdx);
+
+        mv.addObject("user", user);
         mv.addObject("comments", comments);
+
+        return mv;
+    }
+
+    @GetMapping("/comment/search")
+    public ModelAndView adminSearchComment(@RequestParam("keyword") String keyword) throws Exception {
+
+        String trimKeyword = keyword.trim();
+
+        ModelAndView mv = new ModelAndView("admin/commentManagement");
+
+        List<UserEntity> userList = adminUserService.selectUserAccountList();
+        mv.addObject("userList", userList);
+        mv.addObject("keyword", keyword);
 
         return mv;
     }

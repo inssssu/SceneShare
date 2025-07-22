@@ -1,0 +1,218 @@
+/* 전체 페이지 스타일 */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 2rem 1rem;
+    color: #333;
+}
+/* 컨테이너 스타일 */
+.container {
+    max-width: 1100px;
+    background: #ffffff;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+/* 제목 스타일 */
+h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #1f2d3b;
+}
+/* 사용자 요약 정보 영역 스타일 */
+.user-summary {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1.5rem;
+    background: #e2e8f0;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+}
+/* 사용자 정보 텍스트 스타일 */
+.user-summary p {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+    color: #4a5568;
+}
+/* 목록 링크 버튼 스타일 */
+.user-summary a {
+    margin: 0.5rem 0;
+    color: #3182ce;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s, text-decoration 0.3s;
+}
+/* 목록 링크 호버 시 스타일 */
+.user-summary a:hover {
+    color: #2b6cb0;
+    text-decoration: underline;    /* 호버 시 색상 다소 진하게 */
+}
+.movie-section {
+    margin-bottom: 3rem;
+}
+.movie-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-bottom: 2px solid #41aa33;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.4rem;
+    color: #1f2d3b;
+}
+/* 코멘트 카드 스타일 */
+.comment-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1.1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    font-size: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+/* 코멘트 카드 호버 시 스타일 */
+.comment-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.comment-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-grow: 1;
+}
+/* 댓글 뱃지 스타일 */
+.badge {
+    padding: 0.2rem 0.8rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #fff;
+}
+/* 코멘트, 댓글, 대댓글 스타일 */
+.comment {
+    background-color: #6c757d;
+}
+.reply {
+    background-color: #007bff;
+}
+.re-reply {
+    background-color: #28a745;
+}
+/* 코멘트 내용 스타일 */
+.comment-content {
+    font-size: 1rem;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px;
+}
+.comment-meta {
+    font-size: 0.85rem;
+    color: #777;
+}
+/* 작성일 및 삭제 버튼 오른쪽 정렬 스타일 */
+.comment-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: flex-end;
+    font-size: 0.9rem;
+    color: #666;
+}
+/* 삭제 버튼 스타일 */
+.delete-btn {
+    background-color: #e53e3e;
+    color: white;
+    border: none;
+    padding: 0.4rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;    /* 변화가 부드럽게 일어나도록 애니메이션 효과 */
+}
+/* 삭제 버튼 호버 시 스타일 */
+.delete-btn:hover {
+    background-color: #c53030;
+}
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+.modal {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+.modal button {
+    margin: 0.5rem;
+    padding: 0.5rem 1.2rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.modal .confirm {
+    background-color: #e53e3e;
+    color: white;
+}
+.modal .cancel {
+    background-color: #6c757d;
+    color: white;
+}
+/* 페이지네이션 스타일 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+/* 페이지네이션 버튼 스타일 */
+.pagination button {
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+    background-color: #3182ce;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;  /* 버튼 높이 통일 */
+    transition: background-color 0.3s ease;    /* 변화할 때 그 변화가 부드럽게 일어나도록 애니메이션 효과 */
+}
+/* 페이지네이션 버튼 호버 시 스타일 */
+.pagination button:hover:not(:disabled) {
+    background-color: #2b6cb0;
+}
+/* 비활성화된 페이지네이션 버튼 스타일 */
+.pagination button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+.pagination button:active {
+    background-color: #2b6cb0;
+}

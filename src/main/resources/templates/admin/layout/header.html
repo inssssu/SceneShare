@@ -1,0 +1,32 @@
+<!-- templates/layout/adminHeader.html -->
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>관리자 페이지 헤더</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+
+
+  <!-- ✅ 공통 관리자 스타일 포함 -->
+<!--  <link rel="stylesheet" th:href="@{/css/admin.css}">-->
+
+</head>
+
+<body>
+<!-- ✅ 네비게이션 바 구조 -->
+  <div th:fragment="header">
+    <div class="admin-navbar">
+      <div class="nav-container">
+        <ul class="nav-menu">
+          <li><a class="nav-btn" href="/admin/userManagement">유저관리</a></li>
+          <li><a class="nav-btn" href="/admin/movieManagement">영화 정보 관리</a></li>
+          <li><a class="nav-btn" href="/admin/comment">코멘트, 댓글 관리</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

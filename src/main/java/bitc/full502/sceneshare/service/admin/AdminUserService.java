@@ -1,13 +1,13 @@
 package bitc.full502.sceneshare.service.admin;
 
-import bitc.full502.sceneshare.domain.entity.user.UserAccountEntity;
+import bitc.full502.sceneshare.domain.entity.user.UserEntity;
 
 import java.util.List;
 
 public interface AdminUserService {
-    List<UserAccountEntity> selectUserAccountList();
+    List<UserEntity> selectUserAccountList();
 
-    UserAccountEntity selectUserAccountDetail(int userIdx);
+    UserEntity selectUserAccountDetail(int userIdx);
 
-    List<UserAccountEntity> searchUserByKeyword(String keyword);
+    List<UserEntity> searchUserByKeyword(String keyword);
 }
